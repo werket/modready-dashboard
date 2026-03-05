@@ -1968,7 +1968,7 @@ function toggleRecap(group) {
 </div><!-- /dashboard -->
 
 <script>
-const PW_HASH = '6a4f4f2fb46b991d1135b2d7975419640493e37746a23a920e0b56661cbfc1c6';
+const PW_HASH = '4dd90d3d938205c9b5988293ef2cb98f1df34be4438bbefcd7d4f81bd395a3d5';
 async function sha256(msg) {
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
     return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
