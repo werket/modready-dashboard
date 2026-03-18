@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ModReady Operations HQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#030712;--card:rgba(17,24,39,0.6);--border:rgba(255,255,255,0.06);
+  --green:#22c55e;--amber:#f59e0b;--red:#ef4444;
+  --t1:#e5e7eb;--t2:#9ca3af;--t3:#6b7280;
+}
+body{background:var(--bg);color:var(--t1);font-family:'Inter',sans-serif;line-height:1.6;min-height:100vh}
+
+/* Auth */
+#auth-gate{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:16px}
+#auth-gate.hidden{display:none}
+#auth-gate h2{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--green)}
+#auth-gate input{background:var(--card);border:1px solid var(--border);color:var(--t1);padding:12px 16px;border-radius:8px;font-size:14px;width:260px;outline:none}
+#auth-gate input:focus{border-color:var(--green)}
+#auth-gate button{background:var(--green);color:#030712;border:none;padding:10px 32px;border-radius:8px;font-weight:600;cursor:pointer}
+#auth-gate button:hover{background:#16a34a}
+#auth-gate .err{color:var(--red);font-size:13px;min-height:20px}
+
+#dash{display:none;max-width:1200px;margin:0 auto;padding:24px 16px 80px}
+
+/* Header */
+.hdr{text-align:center;padding:28px 24px;margin-bottom:20px;background:var(--card);border:1px solid var(--border);border-radius:16px;backdrop-filter:blur(20px)}
+.hdr h1{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--green);margin-bottom:6px}
+.hdr .sub{font-size:13px;color:var(--t2)}
+
+/* Legend */
+.legend{display:flex;gap:20px;justify-content:center;margin-bottom:24px;font-size:12px;color:var(--t2);flex-wrap:wrap}
+.legend span{display:flex;align-items:center;gap:6px}
+
+/* Sections */
+.section{margin-bottom:16px;border:1px solid var(--border);border-radius:14px;overflow:hidden;border-left:3px solid var(--sc);background:var(--card);backdrop-filter:blur(20px)}
+.section-hdr{display:flex;align-items:center;gap:12px;padding:16px 20px;cursor:pointer;transition:background .15s;user-select:none}
+.section-hdr:hover{background:rgba(255,255,255,0.02)}
+.sec-icon{font-size:22px;flex-shrink:0}
+.sec-text{flex:1;min-width:0}
+.sec-title{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;display:block}
+.sec-desc{font-size:12px;color:var(--t3);display:block;margin-top:2px}
+.sec-badge{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:600;background:rgba(255,255,255,0.04);color:var(--sc);padding:4px 10px;border-radius:6px;white-space:nowrap;text-transform:uppercase;letter-spacing:.5px}
+.sec-chev{font-size:12px;color:var(--t3);transition:transform .3s;flex-shrink:0}
+.section-body{padding:0 20px 20px;transition:max-height .4s ease,opacity .3s ease,padding .3s;max-height:8000px;opacity:1}
+.section-body.closed{max-height:0;opacity:0;padding-bottom:0;overflow:hidden}
+.section-hdr.collapsed .sec-chev{transform:rotate(-90deg)}
+
+/* Flow Cards */
+.flow-card{padding:16px;margin-bottom:12px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:10px}
+.flow-card:last-child{margin-bottom:0}
+.flow-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;flex-wrap:wrap;gap:8px}
+.flow-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px}
+.flow-desc{font-size:12px;color:var(--t3);margin-bottom:12px}
+.flow-steps{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.flow-step{position:relative;font-size:11px;padding:6px 12px;border-radius:6px;font-family:'Space Grotesk',sans-serif;font-weight:500;white-space:nowrap;cursor:default;transition:background .15s}
+.flow-step.active{background:rgba(34,197,94,0.1);color:var(--green);border:1px solid rgba(34,197,94,0.15)}
+.flow-step.partial{background:rgba(245,158,11,0.1);color:var(--amber);border:1px solid rgba(245,158,11,0.15)}
+.flow-step.planned{background:rgba(107,114,128,0.1);color:var(--t3);border:1px solid rgba(107,114,128,0.15)}
+.flow-step:hover{background:rgba(255,255,255,0.08)}
+.step-tip{display:none;position:absolute;left:0;bottom:calc(100% + 8px);width:300px;background:#111827;border:1px solid rgba(107,114,128,0.3);border-radius:8px;padding:10px 12px;font-size:12px;font-weight:400;line-height:1.5;color:var(--t2);z-index:100;box-shadow:0 -4px 20px rgba(0,0,0,0.5);pointer-events:none;font-family:'Inter',sans-serif;white-space:normal}
+.flow-step:hover .step-tip{display:block}
+.flow-arrow{color:var(--t3);font-size:14px;font-weight:bold}
+
+/* Freshness */
+.freshness{font-size:11px;padding:2px 8px;border-radius:4px;font-family:'Space Grotesk',sans-serif;cursor:help}
+.freshness.fresh{background:rgba(34,197,94,0.12);color:var(--green)}
+.freshness.aging{background:rgba(245,158,11,0.12);color:var(--amber)}
+.freshness.stale{background:rgba(239,68,68,0.12);color:var(--red)}
+.freshness.unknown{background:rgba(107,114,128,0.1);color:var(--t3)}
+
+/* Customer Lifecycle */
+.lifecycle{display:flex;align-items:flex-start;overflow-x:auto;padding:16px 8px;gap:0}
+.lc-stage{text-align:center;min-width:90px;max-width:110px;flex-shrink:0}
+.lc-dot{width:12px;height:12px;border-radius:50%;margin:0 auto 6px}
+.lc-stage.active .lc-dot{background:var(--green);box-shadow:0 0 8px var(--green)}
+.lc-stage.partial .lc-dot{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.lc-stage.planned .lc-dot{background:var(--t3)}
+.lc-name{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;margin-bottom:3px}
+.lc-desc{font-size:10px;color:var(--t3);line-height:1.3}
+.lc-line{width:28px;min-width:28px;height:2px;background:rgba(255,255,255,0.1);align-self:center;margin-top:-24px;flex-shrink:0}
+
+/* Sub-sections */
+.sub-section{margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
+.sub-hdr{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--t2);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+
+/* Infrastructure */
+.prov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.prov-card{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center}
+.prov-count{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#06b6d4;margin-bottom:2px}
+.prov-name{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600}
+.prov-region{font-size:11px;color:var(--t3)}
+
+.svc-grid{display:flex;flex-direction:column;gap:6px}
+.svc-row{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,0.02);border-radius:6px;font-size:13px}
+.svc-name{flex:1}.svc-node{font-size:11px;color:var(--t3);white-space:nowrap}
+
+/* Agent Cards */
+.agent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.agent-card{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s}
+.agent-card:hover{border-color:rgba(255,255,255,0.1)}
+.agent-card.inactive{opacity:.4}
+.agent-hdr{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.agent-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px}
+.agent-hdr .info-wrap{margin-left:auto}
+.agent-desc{font-size:12px;color:var(--t2);margin-bottom:8px}
+.agent-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+.agent-owner{font-size:11px;color:var(--t3)}
+.agent-tools{display:flex;gap:4px;flex-wrap:wrap}
+.tag{font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(6,182,212,0.1);color:#06b6d4;font-family:'Space Grotesk',sans-serif;font-weight:500}
+.tag.muted{color:var(--t3);background:rgba(107,114,128,0.08)}
+
+/* Scheduled Jobs */
+.jobs-tbl{width:100%;border-collapse:collapse;font-size:13px}
+.jobs-tbl th{text-align:left;padding:8px 12px;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border)}
+.jobs-tbl td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.03)}
+.job-name{font-weight:500}
+.job-sched{font-family:'Space Grotesk',sans-serif;font-size:12px;color:var(--t2);white-space:nowrap}
+.job-sys{font-size:10px;padding:2px 8px;border-radius:4px;font-family:'Space Grotesk',sans-serif;font-weight:500;white-space:nowrap}
+.job-sys.github-actions{background:rgba(168,85,247,0.1);color:#a855f7}
+.job-sys.crm-scheduler{background:rgba(59,130,246,0.1);color:#3b82f6}
+.job-sys.google-apps-script{background:rgba(34,197,94,0.1);color:var(--green)}
+.job-desc{font-size:12px;color:var(--t2)}
+
+/* Roadmap */
+.rm-section{margin-bottom:20px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;backdrop-filter:blur(20px)}
+.rm-header{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.rm-sub{font-size:12px;color:var(--t3);margin-bottom:16px}
+.rm-list{display:flex;flex-direction:column;gap:6px}
+.rm-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:border-color .2s}
+.rm-card:hover{border-color:rgba(255,255,255,0.1)}
+.rm-card.complete{border-color:rgba(34,197,94,0.15)}
+.rm-card.partial{border-color:rgba(245,158,11,0.15)}
+.rm-head{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,255,255,0.02)}
+.rm-icon{font-size:16px;flex-shrink:0}
+.rm-title{font-size:13px;flex:1}
+.rm-pri{font-size:9px;padding:2px 8px;border-radius:4px;font-family:'Space Grotesk',sans-serif;font-weight:600;text-transform:uppercase}
+.rm-pri.high{background:rgba(239,68,68,0.12);color:var(--red)}
+.rm-pri.medium{background:rgba(245,158,11,0.12);color:var(--amber)}
+.rm-pri.low{background:rgba(107,114,128,0.1);color:var(--t3)}
+.rm-chev{font-size:10px;color:var(--t3);transition:transform .3s;flex-shrink:0}
+.rm-card.expanded .rm-chev{transform:rotate(180deg)}
+.rm-detail{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;padding:0 14px}
+.rm-card.expanded .rm-detail{max-height:300px;padding:10px 14px 14px}
+.rm-row{font-size:12px;color:var(--t2);margin-bottom:4px;line-height:1.5}
+.rm-row:last-child{margin-bottom:0}
+.rm-label{font-weight:600;color:var(--t1)}
+.rm-bar{margin-top:14px;display:flex;align-items:center;gap:10px;font-size:12px;color:var(--t2)}
+.mini-bar{flex:1;max-width:200px;height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden}
+.mini-fill{height:100%;background:var(--green);border-radius:3px}
+
+/* Callout */
+.callout{margin-bottom:16px;padding:16px 20px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:10px;font-size:13px;color:var(--t2);display:flex;align-items:flex-start;gap:10px}
+.callout-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+
+/* Status dots */
+.dot-green,.dot-amber,.dot-gray{display:inline-block;width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-green{background:var(--green);box-shadow:0 0 6px var(--green);animation:pulse 2s infinite}
+.dot-amber{background:var(--amber);box-shadow:0 0 6px var(--amber)}
+.dot-gray{background:var(--t3)}
+@keyframes pulse{0%,100%{box-shadow:0 0 6px var(--green)}50%{box-shadow:0 0 12px var(--green)}}
+
+/* Tooltips */
+.info-wrap{position:relative;display:inline-flex;vertical-align:middle}
+.info-btn{width:16px;height:16px;border-radius:50%;border:1px solid rgba(107,114,128,0.35);background:transparent;color:var(--t3);font-size:9px;font-weight:700;cursor:help;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .15s,color .15s;margin-left:5px}
+.info-btn:hover{border-color:var(--green);color:var(--green)}
+.info-tip{display:none;position:absolute;right:0;top:22px;width:280px;background:#111827;border:1px solid rgba(107,114,128,0.25);border-radius:8px;padding:10px 12px;font-size:12px;font-weight:400;line-height:1.5;color:var(--t2);z-index:100;box-shadow:0 8px 24px rgba(0,0,0,0.5);pointer-events:none;font-family:'Inter',sans-serif;white-space:normal}
+.info-tip.tip-left{right:auto;left:0}
+.info-wrap:hover .info-tip{display:block}
+
+.footer{text-align:center;padding:24px;font-size:11px;color:var(--t3)}
+.footer code{background:rgba(255,255,255,0.04);padding:2px 6px;border-radius:4px;font-size:11px}
+
+@media(max-width:768px){
+  .agent-grid{grid-template-columns:1fr}
+  .hdr h1{font-size:16px}
+  .flow-steps{flex-direction:column;align-items:stretch}
+  .flow-step{text-align:center}
+  .flow-arrow{text-align:center}
+  .lifecycle{flex-direction:column;align-items:center}
+  .lc-line{width:2px;height:16px;min-width:2px;margin-top:0}
+  .step-tip{left:auto;right:0}
+  .jobs-tbl td,.jobs-tbl th{padding:6px 8px;font-size:11px}
+  .job-desc{display:none}
+  .prov-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="auth-gate">
+    <h2>Operations HQ</h2>
+    <input type="password" id="pw" placeholder="Password" autofocus>
+    <button onclick="checkPw()">Enter</button>
+    <div class="err" id="pw-err"></div>
+</div>
+
+<div id="dash">
+
+<div class="hdr">
+    <h1>ModReady Operations HQ</h1>
+    <div class="sub">Workflow Architecture &middot; Updated 2026-03-18 &middot; Generated 2026-03-18 08:07</div>
+    <div class="sub" style="margin-top:6px"><a href="index.html" style="color:var(--green);text-decoration:none;font-weight:500">← Financial Dashboard</a></div>
+</div>
+
+<div class="legend">
+    <span><span class="dot-green"></span> Active / Running</span>
+    <span><span class="dot-amber"></span> Partial / In Progress</span>
+    <span><span class="dot-gray"></span> Planned / Not Started</span>
+</div>
+
+<div class="callout">
+    <span class="callout-icon">📋</span>
+    <div><strong>Contribute:</strong> This dashboard covers business, growth, and analytics flows. Product, platform, and infrastructure processes need to be added to complete the full picture. Edit <code>data/ops_status.yaml</code> — instructions and templates are at the top of the file.</div>
+</div>
+
+
+        <div class="section" style="--sc:#22c55e">
+            <div class="section-hdr" onclick="toggle(this)">
+                <span class="sec-icon">💰</span>
+                <div class="sec-text">
+                    <span class="sec-title">Revenue &amp; Marketing</span>
+                    <span class="sec-desc">Ad spend tracking, billing, financial dashboards, tax reporting</span>
+                </div>
+                <span class="sec-badge">3 FLOWS</span>
+                <span class="sec-chev">▼</span>
+            </div>
+            <div class="section-body open">
+    <div class="flow-card">
+        <div class="flow-header">
+            <span class="flow-title">Google Ads → Performance Analytics</span>
+            <span class="info-wrap"><span class="freshness fresh">0h ago</span><span class="info-tip">Updated within 24h — healthy. File: data/costs/adwords_daily.csv</span></span>
+        </div>
+        <div class="flow-desc">How ad spend data gets from Google to our dashboards, daily and fully automated</div>
+        <div class="flow-steps"><div class="flow-step active">Google Ads<span class="step-tip">Where we run paid search ads to acquire customers. All spend is in SEK.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Apps Script<span class="step-tip">A Google Apps Script runs daily at 06:00 CET. It pulls campaign data (impressions, clicks, cost, conversions) via Google Ads Query Language and writes rows to a Google Sheet.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Google Sheets<span class="step-tip">Staging area — data lands in the 'Adwords_Daily' tab. The sheet is published as a CSV so scripts can download it.</span></div><div class="flow-arrow">→</div><div class="flow-step active">sync_ads_from_sheet.sh<span class="step-tip">A shell script that downloads the published CSV from Google Sheets to a local file. Runs in GitHub Actions.</span></div><div class="flow-arrow">→</div><div class="flow-step active">adwords_daily.csv<span class="step-tip">Local CSV file with columns: Date, Campaign, AdGroup, Impressions, Clicks, Cost_SEK, Conversions, ConversionValue_SEK, CPA_SEK.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Dashboard + ROAS Report<span class="step-tip">Two scripts consume this: analyze_roas.py (generates a markdown report) and generate_dashboard.py (builds the visual dashboard).</span></div></div>
+    </div>
+    <div class="flow-card">
+        <div class="flow-header">
+            <span class="flow-title">Stripe → Financial Dashboard</span>
+            <span class="info-wrap"><span class="freshness fresh">0h ago</span><span class="info-tip">Updated within 24h — healthy. File: data/stripe_subscriptions.json</span></span>
+        </div>
+        <div class="flow-desc">All subscription data pulled daily, turned into KPI dashboard, auto-deployed</div>
+        <div class="flow-steps"><div class="flow-step active">Stripe API<span class="step-tip">Source of truth for all billing. Contains subscriptions, customers, invoices, payment events.</span></div><div class="flow-arrow">→</div><div class="flow-step active">export_stripe_subscriptions.sh<span class="step-tip">Shell script that fetches all ModReady subscriptions (filters out non-ModReady products like VIP). Handles multi-item subscriptions.</span></div><div class="flow-arrow">→</div><div class="flow-step active">generate_dashboard.py<span class="step-tip">Python script that calculates MRR, churn rate, ARPU, at-risk MRR, ROAS, and builds an interactive HTML dashboard with charts.</span></div><div class="flow-arrow">→</div><div class="flow-step active">GitHub Actions<span class="step-tip">Runs daily at 06:00 UTC. Commits updated data files and dashboard to the repo.</span></div><div class="flow-arrow">→</div><div class="flow-step active">dashboard.modready.gg<span class="step-tip">Password-protected dashboard deployed via GitHub Pages (separate repo: werket/modready-dashboard).</span></div></div>
+    </div>
+    <div class="flow-card">
+        <div class="flow-header">
+            <span class="flow-title">VAT Liability Reporting</span>
+            
+        </div>
+        <div class="flow-desc">EU tax calculations — ~55% of customers are EU-based, requiring ~21% VAT</div>
+        <div class="flow-steps"><div class="flow-step active">stripe_subscriptions.json<span class="step-tip">Contains currency (EUR/USD) and region data for each subscription.</span></div><div class="flow-arrow">→</div><div class="flow-step active">generate_vat_report.sh<span class="step-tip">Analyzes EU vs non-EU revenue. EU = currency EUR or region Europe. Applies 21% VAT rate.</span></div><div class="flow-arrow">→</div><div class="flow-step active">VAT Report<span class="step-tip">Monthly report in reports/vat/ with breakdown by region, currency, and total liability in EUR and SEK.</span></div></div>
+    </div></div>
+        </div>
+        <div class="section" style="--sc:#3b82f6">
+            <div class="section-hdr" onclick="toggle(this)">
+                <span class="sec-icon">👥</span>
+                <div class="sec-text">
+                    <span class="sec-title">Customer Operations</span>
+                    <span class="sec-desc">CRM, email automation, support, customer lifecycle</span>
+                </div>
+                <span class="sec-badge">4 FLOWS</span>
+                <span class="sec-chev">▼</span>
+            </div>
+            <div class="section-body open">
+    <div class="flow-card">
+        <div class="flow-header">
+            <span class="flow-title">Stripe Webhooks → CRM → Automation</span>
+            
+        </div>
+        <div class="flow-desc">When a customer pays, fails to pay, or cancels — our systems react automatically</div>
+        <div class="flow-steps"><div class="flow-step active">Stripe Event<span class="step-tip">Real-time events: subscription.created, invoice.payment_failed, subscription.deleted, charge.dispute.created, etc.</span></div><div class="flow-arrow">→</div><div class="flow-step active">CRM Webhook Handler<span class="step-tip">FastAPI endpoint at /api/webhooks/stripe. Validates HMAC-SHA256 signature, routes events to handlers.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Database Update<span class="step-tip">Creates/updates Customer + Subscription records in PostgreSQL. Tracks cancellation reasons, metadata.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Automation Engine<span class="step-tip">Matches the event type to automation rules. If a rule matches, it enqueues an email sequence with scheduled delays.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Email via Resend<span class="step-tip">Queue processes every 2 minutes. Renders Jinja2 template with customer data. Sends via Resend API. Tracks delivery.</span></div></div>
+    </div>
+    <div class="flow-card">
+        <div class="flow-header">
+            <span class="flow-title">Email Automation Sequences</span>
+            
+        </div>
+        <div class="flow-desc">Automated email campaigns triggered by customer lifecycle events</div>
+        <div class="flow-steps"><div class="flow-step active">Trigger Event<span class="step-tip">Examples: subscription.created → welcome flow, payment_failed → dunning flow, subscription.deleted → win-back flow.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Automation Rule<span class="step-tip">Defines a sequence of steps with delays. E.g., Step 1: immediately send welcome email, Step 2: send tips after 24 hours.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Email Queue<span class="step-tip">Items scheduled for future delivery. Processed every 2 minutes by the CRM scheduler. Idempotent — won't re-send.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Resend API<span class="step-tip">Handles actual email delivery. Returns tracking data: opens, bounces, clicks.</span></div><div class="flow-arrow">→</div><div class="flow-step partial">Analytics<span class="step-tip">Open rates and clicks are tracked in the CRM but not yet surfaced in a dashboard. Planned improvement.</span></div></div>
+    </div>
+    <div class="flow-card">
+        <div class="flow-header">
+            <span class="flow-title">Discord Support System</span>
+            
+        </div>
+        <div class="flow-desc">Customer support tickets handled via Discord bot running on Node 1</div>
+        <div class="flow-steps"><div class="flow-step active">Customer opens ticket<span class="step-tip">Customer clicks the create-ticket button in the ModReady Discord server.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Bot triages<span class="step-tip">Categorizes ticket type: purchase, setup, technical, billing, other. Creates a private channel.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Staff notified<span class="step-tip">Support staff (cxtides, fonzie1984, picklecord) get notified in the ticket channel.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Resolution &amp; close<span class="step-tip">Staff resolves the issue, ticket is closed. Transcript saved.</span></div></div>
+    </div>
+    <div class="flow-card">
+        <div class="flow-header">
+            <span class="flow-title">CRM Daily Data Sync</span>
+            
+        </div>
+        <div class="flow-desc">Stripe subscriptions and trial leads synced into CRM every morning</div>
+        <div class="flow-steps"><div class="flow-step active">Stripe API<span class="step-tip">Paginated fetch of all subscriptions (100 per page). Filters out non-ModReady products.</span></div><div class="flow-arrow">→</div><div class="flow-step active">CRM Stripe Sync<span class="step-tip">Runs daily at 08:00 UTC via APScheduler. Creates/updates Customer + Subscription records. Detects status changes.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Trial Database<span class="step-tip">Trial leads from /var/www/modready-api/trials.db synced at 07:00 UTC into CRM.</span></div><div class="flow-arrow">→</div><div class="flow-step active">PostgreSQL<span class="step-tip">CRM database with full customer history, event timeline, subscription details.</span></div></div>
+    </div>
+            <div class="sub-section">
+                <div class="sub-hdr">Customer Journey <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip tip-left">The customer lifecycle from discovery to retention. Green = fully automated, amber = partially automated, gray = not yet built.</span></span></div>
+                <div class="lifecycle"><div class="lc-stage active"><div class="lc-dot"></div><div class="lc-name">Discovery</div><div class="lc-desc">Customer finds ModReady via Google Ads, Reddit, or word of mouth</div></div><div class="lc-line"></div><div class="lc-stage active"><div class="lc-dot"></div><div class="lc-name">Trial</div><div class="lc-desc">Free trial signup on website — server auto-provisioned</div></div><div class="lc-line"></div><div class="lc-stage active"><div class="lc-dot"></div><div class="lc-name">Purchase</div><div class="lc-desc">Stripe Checkout creates subscription, server activated</div></div><div class="lc-line"></div><div class="lc-stage partial"><div class="lc-dot"></div><div class="lc-name">Onboarding</div><div class="lc-desc">Welcome email sequence + setup tips via CRM automation</div></div><div class="lc-line"></div><div class="lc-stage active"><div class="lc-dot"></div><div class="lc-name">Active</div><div class="lc-desc">Customer using their server, support available via Discord</div></div><div class="lc-line"></div><div class="lc-stage active"><div class="lc-dot"></div><div class="lc-name">At-Risk</div><div class="lc-desc">Payment failed (dunning emails) or cancel_at_period_end set</div></div><div class="lc-line"></div><div class="lc-stage active"><div class="lc-dot"></div><div class="lc-name">Churned</div><div class="lc-desc">Subscription ended, server suspended, data kept safe</div></div><div class="lc-line"></div><div class="lc-stage planned"><div class="lc-dot"></div><div class="lc-name">Win-back</div><div class="lc-desc">Re-engagement email campaigns to churned customers</div></div></div>
+            </div></div>
+        </div>
+        <div class="section" style="--sc:#a855f7">
+            <div class="section-hdr" onclick="toggle(this)">
+                <span class="sec-icon">🚀</span>
+                <div class="sec-text">
+                    <span class="sec-title">Development &amp; Deploy</span>
+                    <span class="sec-desc">Website, CI/CD, staging, Git workflow</span>
+                </div>
+                <span class="sec-badge">2 FLOWS</span>
+                <span class="sec-chev">▼</span>
+            </div>
+            <div class="section-body open">
+    <div class="flow-card">
+        <div class="flow-header">
+            <span class="flow-title">Website Deployment Pipeline</span>
+            
+        </div>
+        <div class="flow-desc">Code changes go from local development through staging review to production at modready.gg</div>
+        <div class="flow-steps"><div class="flow-step active">Local dev<span class="step-tip">Next.js 16 + TypeScript + Tailwind CSS 4. Work on the 'staging' branch.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Push to staging<span class="step-tip">Git push to staging branch triggers Coolify auto-deploy.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Coolify builds<span class="step-tip">Docker build + deploy to staging server on Node 1 (port 3000).</span></div><div class="flow-arrow">→</div><div class="flow-step active">Staging review<span class="step-tip">Test at staging URL. Verify changes work before production.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Merge to main<span class="step-tip">Create PR, get approval, merge. Never push directly to main.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Production live<span class="step-tip">Coolify auto-deploys from main branch → modready.gg (port 80).</span></div></div>
+    </div>
+    <div class="flow-card">
+        <div class="flow-header">
+            <span class="flow-title">Dashboard Auto-Deploy</span>
+            
+        </div>
+        <div class="flow-desc">GitHub Actions pipeline: sync data → generate dashboards → commit → deploy — runs daily</div>
+        <div class="flow-steps"><div class="flow-step active">Trigger (06:00 UTC)<span class="step-tip">GitHub Actions cron schedule. Can also be triggered manually via workflow_dispatch.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Sync ads CSV<span class="step-tip">Downloads latest Google Ads data from published Google Sheet.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Generate dashboards<span class="step-tip">Runs generate_dashboard.py (financial) + generate_ops_dashboard.py (this dashboard).</span></div><div class="flow-arrow">→</div><div class="flow-step active">Commit to repo<span class="step-tip">Auto-commits updated HTML files + data to the main repo.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Deploy to GH Pages<span class="step-tip">Pushes to werket/modready-dashboard repo via SSH deploy key. Serves dashboard.modready.gg.</span></div></div>
+    </div></div>
+        </div>
+        <div class="section" style="--sc:#06b6d4">
+            <div class="section-hdr" onclick="toggle(this)">
+                <span class="sec-icon">🏗️</span>
+                <div class="sec-text">
+                    <span class="sec-title">Infrastructure &amp; AI</span>
+                    <span class="sec-desc">Servers, services, agents, scheduled automation</span>
+                </div>
+                <span class="sec-badge">2 FLOWS</span>
+                <span class="sec-chev">▼</span>
+            </div>
+            <div class="section-body open">
+    <div class="flow-card">
+        <div class="flow-header">
+            <span class="flow-title">Game Server Management</span>
+            
+        </div>
+        <div class="flow-desc">Pterodactyl Panel on Node 1 managing game servers across all 20 nodes</div>
+        <div class="flow-steps"><div class="flow-step active">Pterodactyl Panel<span class="step-tip">panel.modready.gg — web UI for managing game servers. Runs on Node 1 with MySQL backend.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Wings Daemon<span class="step-tip">Runs on all 20 nodes. Manages Docker containers for game servers. Communicates with Panel via API.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Customer Panel<span class="step-tip">Customers log in to panel.modready.gg to start/stop servers, manage files, install modpacks.</span></div></div>
+    </div>
+    <div class="flow-card">
+        <div class="flow-header">
+            <span class="flow-title">Auto-Suspend / Unsuspend</span>
+            
+        </div>
+        <div class="flow-desc">Servers automatically suspended when payment fails, unsuspended when payment succeeds</div>
+        <div class="flow-steps"><div class="flow-step active">Payment fails<span class="step-tip">Stripe sends invoice.payment_failed webhook. Subscription enters past_due status.</span></div><div class="flow-arrow">→</div><div class="flow-step active">CRM processes<span class="step-tip">Webhook handler updates subscription status, triggers dunning email automation.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Server suspended<span class="step-tip">Pterodactyl API suspends the game server. Customer can't access it.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Payment succeeds<span class="step-tip">Customer pays (or card retried successfully). Stripe sends invoice.payment_succeeded.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Server unsuspended<span class="step-tip">Server automatically reactivated. Customer regains access.</span></div></div>
+    </div>
+            <div class="sub-section">
+                <div class="sub-hdr">Server Providers <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip tip-left">Hosting companies running Pterodactyl Wings nodes. Multi-provider = less single-vendor risk.</span></span></div>
+                <div class="prov-grid"><div class="prov-card"><div class="prov-count">12</div><div class="prov-name">Hetzner</div><div class="prov-region">EU</div></div><div class="prov-card"><div class="prov-count">5</div><div class="prov-name">OVH</div><div class="prov-region">EU</div></div><div class="prov-card"><div class="prov-count">2</div><div class="prov-name">HostHatch</div><div class="prov-region">US</div></div><div class="prov-card"><div class="prov-count">1</div><div class="prov-name">PebbleHost</div><div class="prov-region">EU</div></div></div>
+            </div>
+            <div class="sub-section">
+                <div class="sub-hdr">Services <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip tip-left">Key software running on the fleet. Most on Node 1 (management server). Hover (i) for details.</span></span></div>
+                <div class="svc-grid"><div class="svc-row"><span class="dot-green"></span><span class="svc-name">Pterodactyl Panel</span><span class="svc-node">Node 1</span><span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Game server management UI at panel.modready.gg</span></span></div><div class="svc-row"><span class="dot-green"></span><span class="svc-name">Pterodactyl Wings</span><span class="svc-node">Node all 20</span><span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Game server daemon running on every node</span></span></div><div class="svc-row"><span class="dot-green"></span><span class="svc-name">Coolify</span><span class="svc-node">Node 1</span><span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Container orchestration — auto-deploys website and CRM</span></span></div><div class="svc-row"><span class="dot-green"></span><span class="svc-name">MySQL</span><span class="svc-node">Node 1</span><span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Pterodactyl panel database</span></span></div><div class="svc-row"><span class="dot-green"></span><span class="svc-name">PostgreSQL</span><span class="svc-node">Node 1</span><span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">CRM database (Docker container)</span></span></div><div class="svc-row"><span class="dot-green"></span><span class="svc-name">Discord Bot</span><span class="svc-node">Node 1</span><span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Support ticket system at /var/www/modready-discord-bot/</span></span></div><div class="svc-row"><span class="dot-green"></span><span class="svc-name">CRM API (FastAPI)</span><span class="svc-node">Node 1</span><span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Customer management + automation engine</span></span></div><div class="svc-row"><span class="dot-green"></span><span class="svc-name">Website (Next.js)</span><span class="svc-node">Node 1</span><span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">modready.gg served via Coolify</span></span></div><div class="svc-row"><span class="dot-green"></span><span class="svc-name">Dashboard</span><span class="svc-node">Node external</span><span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">dashboard.modready.gg on GitHub Pages</span></span></div></div>
+            </div>
+            <div class="sub-section">
+                <div class="sub-hdr">AI Agents (2/5 active) <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip tip-left">AI agents handling work autonomously. Part of the AI-first operating model.</span></span></div>
+                <div class="agent-grid">
+        <div class="agent-card active">
+            <div class="agent-hdr"><span class="dot-green"></span><span class="agent-name">CFO Strategic Finance</span><span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Running in production. Owner: adam. Config: agents/cfo-strategic-finance/.</span></span></div>
+            <div class="agent-desc">Financial analysis, SaaS metrics, forecasting, board reports</div>
+            <div class="agent-foot"><span class="agent-owner">adam</span><div class="agent-tools"><span class="tag">stripe</span><span class="tag">notion</span></div></div>
+        </div>
+        <div class="agent-card active">
+            <div class="agent-hdr"><span class="dot-green"></span><span class="agent-name">Discord Support Bot</span><span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Running in production. Owner: jonathan. Config: /var/www/modready-discord-bot/.</span></span></div>
+            <div class="agent-desc">Ticket triage, auto-responses, customer support</div>
+            <div class="agent-foot"><span class="agent-owner">jonathan</span><div class="agent-tools"><span class="tag">discord</span></div></div>
+        </div>
+        <div class="agent-card planned">
+            <div class="agent-hdr"><span class="dot-amber"></span><span class="agent-name">Operations Agent</span><span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">In development or design phase. Owner: adam. No config yet.</span></span></div>
+            <div class="agent-desc">Infrastructure monitoring, node health checks, auto-remediation</div>
+            <div class="agent-foot"><span class="agent-owner">adam</span><div class="agent-tools"><span class="tag">ssh</span><span class="tag">pterodactyl</span></div></div>
+        </div>
+        <div class="agent-card planned">
+            <div class="agent-hdr"><span class="dot-amber"></span><span class="agent-name">Marketing Agent</span><span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">In development or design phase. Owner: adam. No config yet.</span></span></div>
+            <div class="agent-desc">Ad copy generation, campaign analysis, Reddit scouting</div>
+            <div class="agent-foot"><span class="agent-owner">adam</span><div class="agent-tools"><span class="tag">google-ads</span><span class="tag">slack</span></div></div>
+        </div>
+        <div class="agent-card inactive">
+            <div class="agent-hdr"><span class="dot-gray"></span><span class="agent-name">Onboarding Agent</span><span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Not yet started. Owner: jonathan. No config yet.</span></span></div>
+            <div class="agent-desc">New customer setup guidance, modpack recommendations</div>
+            <div class="agent-foot"><span class="agent-owner">jonathan</span><div class="agent-tools"><span class="tag muted">none</span></div></div>
+        </div></div>
+            </div></div>
+        </div>
+
+<div class="section" style="--sc:#f59e0b">
+    <div class="section-hdr" onclick="toggle(this)">
+        <span class="sec-icon">⏰</span>
+        <div class="sec-text">
+            <span class="sec-title">Scheduled Jobs</span>
+            <span class="sec-desc">Everything that runs automatically on a schedule</span>
+        </div>
+        <span class="sec-badge">7 JOBS</span>
+        <span class="sec-chev">▼</span>
+    </div>
+    <div class="section-body open">
+        <table class="jobs-tbl">
+            <thead><tr><th>Job</th><th>Schedule</th><th>System</th><th>Description</th></tr></thead>
+            <tbody><tr><td class="job-name">Google Ads Data Export</td><td class="job-sched">Daily 06:00 CET</td><td><span class="job-sys google-apps-script">Google Apps Script</span></td><td class="job-desc">Pulls campaign metrics from Google Ads API → Google Sheets</td></tr><tr><td class="job-name">Dashboard Generation + Deploy</td><td class="job-sched">Daily 06:00 UTC</td><td><span class="job-sys github-actions">GitHub Actions</span></td><td class="job-desc">Syncs ads data, generates financial + ops dashboards, commits and deploys to dashboard.modready.gg</td></tr><tr><td class="job-name">CRM Trial Sync</td><td class="job-sched">Daily 07:00 UTC</td><td><span class="job-sys crm-scheduler">CRM Scheduler</span></td><td class="job-desc">Imports trial leads from trials.db into CRM database</td></tr><tr><td class="job-name">CRM Stripe Sync</td><td class="job-sched">Daily 08:00 UTC</td><td><span class="job-sys crm-scheduler">CRM Scheduler</span></td><td class="job-desc">Fetches all Stripe subscriptions, creates/updates CRM records, detects status changes</td></tr><tr><td class="job-name">Email Queue Processor</td><td class="job-sched">Every 2 minutes</td><td><span class="job-sys crm-scheduler">CRM Scheduler</span></td><td class="job-desc">Finds pending automation emails due for send, renders templates, sends via Resend API</td></tr><tr><td class="job-name">Campaign Scheduler</td><td class="job-sched">Every 5 minutes</td><td><span class="job-sys crm-scheduler">CRM Scheduler</span></td><td class="job-desc">Checks for scheduled email campaigns due for batch send</td></tr><tr><td class="job-name">Churn Insights</td><td class="job-sched">Weekly (Mon 08:00 UTC)</td><td><span class="job-sys crm-scheduler">CRM Scheduler</span></td><td class="job-desc">Generates weekly churn analysis, retention metrics, stores as ChurnInsight record</td></tr></tbody>
+        </table>
+    </div>
+</div>
+
+<div class="rm-section">
+    <div class="rm-header">📋 Improvement Roadmap <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip tip-left">Items from the March 2026 architecture report + identified gaps. Click any item to expand details — what needs to happen, the value it provides, and implementation risks.</span></span></div>
+    <div class="rm-sub">2 complete, 4 in progress, 6 not started — click items to expand</div>
+    <div class="rm-list">
+        <div class="rm-card complete" onclick="this.classList.toggle('expanded')">
+            <div class="rm-head">
+                <span class="rm-icon">✅</span>
+                <span class="rm-title">Establish branch protection rules</span>
+                <span class="rm-pri high">high</span>
+                <span class="rm-chev">▼</span>
+            </div>
+            <div class="rm-detail"><div class="rm-row"><span class="rm-label">What:</span> Prevent direct pushes to main branch. Require pull requests for all changes.</div><div class="rm-row"><span class="rm-label">Value:</span> Prevents accidental breaking changes in production. Creates audit trail.</div><div class="rm-row"><span class="rm-label">Risk:</span> Low — Git/GitHub configuration only.</div></div>
+        </div>
+        <div class="rm-card complete" onclick="this.classList.toggle('expanded')">
+            <div class="rm-head">
+                <span class="rm-icon">✅</span>
+                <span class="rm-title">Implement staging environment for website</span>
+                <span class="rm-pri high">high</span>
+                <span class="rm-chev">▼</span>
+            </div>
+            <div class="rm-detail"><div class="rm-row"><span class="rm-label">What:</span> Separate staging deployment on Coolify that mirrors production for pre-release testing.</div><div class="rm-row"><span class="rm-label">Value:</span> Catch bugs before they reach customers. Safe place to test new features.</div><div class="rm-row"><span class="rm-label">Risk:</span> Low — Coolify supports multiple environments natively.</div></div>
+        </div>
+        <div class="rm-card not_started" onclick="this.classList.toggle('expanded')">
+            <div class="rm-head">
+                <span class="rm-icon">⬜</span>
+                <span class="rm-title">Create unified runbook for incident response</span>
+                <span class="rm-pri medium">medium</span>
+                <span class="rm-chev">▼</span>
+            </div>
+            <div class="rm-detail"><div class="rm-row"><span class="rm-label">What:</span> Step-by-step procedures for common incidents: node down, database issues, payment failures, DDoS.</div><div class="rm-row"><span class="rm-label">Value:</span> Faster incident resolution. Enables anyone (or an AI agent) to respond consistently.</div><div class="rm-row"><span class="rm-label">Risk:</span> Low — documentation effort, no infrastructure changes needed.</div></div>
+        </div>
+        <div class="rm-card partial" onclick="this.classList.toggle('expanded')">
+            <div class="rm-head">
+                <span class="rm-icon">🔶</span>
+                <span class="rm-title">Set up structured task management</span>
+                <span class="rm-pri high">high</span>
+                <span class="rm-chev">▼</span>
+            </div>
+            <div class="rm-detail"><div class="rm-row"><span class="rm-label">What:</span> Move from ad-hoc Claude conversations to Notion or Linear with priorities and deadlines.</div><div class="rm-row"><span class="rm-label">Value:</span> Clear visibility into what's being worked on, what's blocked, and what's next.</div><div class="rm-row"><span class="rm-label">Risk:</span> Low — tooling choice. Small risk of over-engineering process for a small team.</div></div>
+        </div>
+        <div class="rm-card partial" onclick="this.classList.toggle('expanded')">
+            <div class="rm-head">
+                <span class="rm-icon">🔶</span>
+                <span class="rm-title">Automate deployment pipeline (CI/CD)</span>
+                <span class="rm-pri high">high</span>
+                <span class="rm-chev">▼</span>
+            </div>
+            <div class="rm-detail"><div class="rm-row"><span class="rm-label">What:</span> Add automated tests, build verification, and post-deploy health checks to the deployment process.</div><div class="rm-row"><span class="rm-label">Value:</span> Catch errors before deployment. Enable confident, frequent releases without manual verification.</div><div class="rm-row"><span class="rm-label">Risk:</span> Medium — bad CI config could block all deployments. Start with non-blocking checks.</div></div>
+        </div>
+        <div class="rm-card not_started" onclick="this.classList.toggle('expanded')">
+            <div class="rm-head">
+                <span class="rm-icon">⬜</span>
+                <span class="rm-title">Centralize monitoring and alerting</span>
+                <span class="rm-pri high">high</span>
+                <span class="rm-chev">▼</span>
+            </div>
+            <div class="rm-detail"><div class="rm-row"><span class="rm-label">What:</span> Set up Uptime Robot or similar for service monitoring. Alert to Slack/Discord on downtime.</div><div class="rm-row"><span class="rm-label">Value:</span> Know when things break before customers report it. Reduce downtime and response time.</div><div class="rm-row"><span class="rm-label">Risk:</span> Low for setup. Risk of alert fatigue if too many noisy alerts configured.</div></div>
+        </div>
+        <div class="rm-card partial" onclick="this.classList.toggle('expanded')">
+            <div class="rm-head">
+                <span class="rm-icon">🔶</span>
+                <span class="rm-title">Document all manual operations</span>
+                <span class="rm-pri medium">medium</span>
+                <span class="rm-chev">▼</span>
+            </div>
+            <div class="rm-detail"><div class="rm-row"><span class="rm-label">What:</span> Identify and document every manual task (server setup, customer migrations, billing adjustments) as future automation candidates.</div><div class="rm-row"><span class="rm-label">Value:</span> Foundation for the AI-first model. Can't automate what isn't documented.</div><div class="rm-row"><span class="rm-label">Risk:</span> Low — documentation only. Requires ongoing discipline to keep updated.</div></div>
+        </div>
+        <div class="rm-card not_started" onclick="this.classList.toggle('expanded')">
+            <div class="rm-head">
+                <span class="rm-icon">⬜</span>
+                <span class="rm-title">AI agent coordination framework</span>
+                <span class="rm-pri low">low</span>
+                <span class="rm-chev">▼</span>
+            </div>
+            <div class="rm-detail"><div class="rm-row"><span class="rm-label">What:</span> Framework for multiple AI agents to collaborate, share context, and hand off tasks between each other.</div><div class="rm-row"><span class="rm-label">Value:</span> Enables scaling automation without human coordination overhead.</div><div class="rm-row"><span class="rm-label">Risk:</span> High complexity. Premature if current individual agents aren't mature yet.</div></div>
+        </div>
+        <div class="rm-card not_started" onclick="this.classList.toggle('expanded')">
+            <div class="rm-head">
+                <span class="rm-icon">⬜</span>
+                <span class="rm-title">Add error tracking (Sentry or similar)</span>
+                <span class="rm-pri high">high</span>
+                <span class="rm-chev">▼</span>
+            </div>
+            <div class="rm-detail"><div class="rm-row"><span class="rm-label">What:</span> Integrate error tracking in website, CRM, and Discord bot. Real-time alerts for unhandled exceptions.</div><div class="rm-row"><span class="rm-label">Value:</span> Catch bugs that users don't report. Understand error frequency and patterns.</div><div class="rm-row"><span class="rm-label">Risk:</span> Low — SaaS integration. Small performance overhead from tracking SDK.</div></div>
+        </div>
+        <div class="rm-card not_started" onclick="this.classList.toggle('expanded')">
+            <div class="rm-head">
+                <span class="rm-icon">⬜</span>
+                <span class="rm-title">Add uptime monitoring for critical services</span>
+                <span class="rm-pri high">high</span>
+                <span class="rm-chev">▼</span>
+            </div>
+            <div class="rm-detail"><div class="rm-row"><span class="rm-label">What:</span> Monitor: modready.gg, panel.modready.gg, dashboard.modready.gg, CRM API, Discord bot.</div><div class="rm-row"><span class="rm-label">Value:</span> Immediate notification when any service goes down. Track uptime SLA over time.</div><div class="rm-row"><span class="rm-label">Risk:</span> Low — external service, no infra changes. Cost: ~$5-10/month.</div></div>
+        </div>
+        <div class="rm-card not_started" onclick="this.classList.toggle('expanded')">
+            <div class="rm-head">
+                <span class="rm-icon">⬜</span>
+                <span class="rm-title">Automated backup verification</span>
+                <span class="rm-pri medium">medium</span>
+                <span class="rm-chev">▼</span>
+            </div>
+            <div class="rm-detail"><div class="rm-row"><span class="rm-label">What:</span> Verify backups are complete and restorable. Test recovery procedure monthly.</div><div class="rm-row"><span class="rm-label">Value:</span> Confidence that we can actually recover from data loss. Customer trust.</div><div class="rm-row"><span class="rm-label">Risk:</span> Medium — recovery testing must be done carefully to avoid affecting production data.</div></div>
+        </div>
+        <div class="rm-card partial" onclick="this.classList.toggle('expanded')">
+            <div class="rm-head">
+                <span class="rm-icon">🔶</span>
+                <span class="rm-title">Build unified customer view in CRM</span>
+                <span class="rm-pri medium">medium</span>
+                <span class="rm-chev">▼</span>
+            </div>
+            <div class="rm-detail"><div class="rm-row"><span class="rm-label">What:</span> Link Stripe billing, Pterodactyl server data, and Discord tickets into a single customer profile.</div><div class="rm-row"><span class="rm-label">Value:</span> Support sees full customer context in one place. Enables smarter automation triggers.</div><div class="rm-row"><span class="rm-label">Risk:</span> Medium — requires API integrations across 3 systems. Data consistency challenges.</div></div>
+        </div></div>
+    <div class="rm-bar">
+        <span>33%</span>
+        <div class="mini-bar"><div class="mini-fill" style="width:33.33333333333333%"></div></div>
+    </div>
+</div>
+
+<div class="footer">
+    To update: edit <code>data/ops_status.yaml</code> then run <code>python3 scripts/generate_ops_dashboard.py</code>
+</div>
+
+</div>
+
+<script>
+const H='4dd90d3d938205c9b5988293ef2cb98f1df34be4438bbefcd7d4f81bd395a3d5';
+async function sha256(m){if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(m));return[...new Uint8Array(b)].map(b=>b.toString(16).padStart(2,'0')).join('')}const u=new TextEncoder().encode(m),I=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19],K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2],r=(n,x)=>(x>>>n)|(x<<(32-n)),p=new Uint8Array(((u.length+9+63)&~63));p.set(u);p[u.length]=0x80;const d=new DataView(p.buffer);d.setUint32(p.length-4,u.length*8,false);const h=[...I];for(let o=0;o<p.length;o+=64){const w=new Uint32Array(64);for(let i=0;i<16;i++)w[i]=d.getUint32(o+i*4,false);for(let i=16;i<64;i++){const s0=r(7,w[i-15])^r(18,w[i-15])^(w[i-15]>>>3),s1=r(17,w[i-2])^r(19,w[i-2])^(w[i-2]>>>10);w[i]=(w[i-16]+s0+w[i-7]+s1)|0}let[a,b,c,dd,e,f,g,hh]=h;for(let i=0;i<64;i++){const S1=r(6,e)^r(11,e)^r(25,e),ch=(e&f)^(~e&g),t1=(hh+S1+ch+K[i]+w[i])|0,S0=r(2,a)^r(13,a)^r(22,a),mj=(a&b)^(a&c)^(b&c),t2=(S0+mj)|0;hh=g;g=f;f=e;e=(dd+t1)|0;dd=c;c=b;b=a;a=(t1+t2)|0}h[0]=(h[0]+a)|0;h[1]=(h[1]+b)|0;h[2]=(h[2]+c)|0;h[3]=(h[3]+dd)|0;h[4]=(h[4]+e)|0;h[5]=(h[5]+f)|0;h[6]=(h[6]+g)|0;h[7]=(h[7]+hh)|0}return h.map(v=>(v>>>0).toString(16).padStart(8,'0')).join('')}
+function unlock(){document.getElementById('auth-gate').classList.add('hidden');document.getElementById('dash').style.display='block'}
+async function checkPw(){const p=document.getElementById('pw').value,h=await sha256(p);if(h===H){localStorage.setItem('mr_ops',h);unlock()}else{document.getElementById('pw-err').textContent='Wrong password'}}
+document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')checkPw()});
+(async()=>{if(localStorage.getItem('mr_ops')===H)unlock()})();
+function toggle(el){el.classList.toggle('collapsed');const b=el.nextElementSibling;b.classList.toggle('open');b.classList.toggle('closed')}
+</script>
+
+</body>
+</html>
