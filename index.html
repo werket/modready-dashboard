@@ -382,31 +382,32 @@ td.negative { color: var(--red); font-weight: 600; }
 
 <div id="dashboard">
 <h1>ModReady Dashboard</h1>
-<p class="subtitle">Sales & Ads Performance &middot; Generated 2026-03-24 13:08 &middot; 2026-02-22 to 2026-03-23</p>
-<p class="subtitle" style="margin-top:6px"><a href="ops.html" style="color:#22c55e;text-decoration:none;font-weight:500">Operations HQ →</a></p>
+<p class="subtitle">Sales & Ads Performance &middot; Generated 2026-03-25 06:28 &middot; 2026-02-23 to 2026-03-24</p>
+<div id="dash-nav"></div>
+<script src="dash-nav.js"></script>
 
 
 <div class="recap-section">
     <div class="recap-header">
         <h2>Daily Recap</h2>
-        <span class="recap-date">2026-03-23 (CET)</span>
+        <span class="recap-date">2026-03-24 (CET)</span>
     </div>
     <div class="recap-body">
         <div class="recap-summary-grid">
             <div class="recap-summary-item">
                 <div class="recap-label">MRR</div>
-                <div class="recap-value" style="color:var(--accent)">$11,485</div>
-                <div class="recap-delta"><span style="color:var(--accent)">+$101.18</span></div>
+                <div class="recap-value" style="color:var(--accent)">$11,462</div>
+                <div class="recap-delta"><span style="color:var(--accent)">+$150.01</span></div>
             </div>
             <div class="recap-summary-item">
                 <div class="recap-label">ARR</div>
-                <div class="recap-value">$137,825</div>
-                <div class="recap-delta"><span style="color:var(--accent)">+$1,214.16</span></div>
+                <div class="recap-value">$137,543</div>
+                <div class="recap-delta"><span style="color:var(--accent)">+$1,800.12</span></div>
             </div>
             <div class="recap-summary-item">
                 <div class="recap-label">Subscribers</div>
-                <div class="recap-value">1082</div>
-                <div class="recap-delta"><span style="color:var(--accent)">+7</span></div>
+                <div class="recap-value">1076</div>
+                <div class="recap-delta"><span style="color:var(--accent)">+10</span></div>
             </div>
         </div>
     </div>
@@ -416,8 +417,8 @@ td.negative { color: var(--red); font-weight: 600; }
         <table class="recap-movement">
             <tr>
                 <td>New Business</td>
-                <td style="color:var(--accent)">+$202.00</td>
-                <td>17 subs</td>
+                <td style="color:var(--accent)">+$235.16</td>
+                <td>19 subs</td>
             </tr>
             <tr>
                 <td>Reactivations</td>
@@ -426,28 +427,54 @@ td.negative { color: var(--red); font-weight: 600; }
             </tr>
             <tr>
                 <td>Expansion</td>
-                <td style="color:var(--accent)">+$14.97</td>
-                <td>5 upgrades</td>
+                <td style="color:var(--accent)">+$16.50</td>
+                <td>3 upgrades</td>
             </tr>
             <tr>
                 <td>Churn</td>
-                <td style="color:var(--red)">-$115.79</td>
-                <td>10 subs</td>
+                <td style="color:var(--red)">-$92.72</td>
+                <td>8 subs</td>
             </tr>
             <tr>
                 <td>Refunds</td>
-                <td style="color:var(--red)">-$0.00</td>
-                <td>0 subs</td>
+                <td style="color:var(--red)">-$8.93</td>
+                <td>1 sub</td>
             </tr>
             <tr class="net-row">
                 <td>Net MRR Movement</td>
-                <td style="color:var(--accent)">+$101.18</td>
-                <td style="color:var(--accent)">+0.89%</td>
+                <td style="color:var(--accent)">+$150.01</td>
+                <td style="color:var(--accent)">+1.33%</td>
+            </tr>
+        </table>
+    </div>
+    <div class="recap-divider"></div>
+    <div class="recap-body">
+        <div class="recap-sub-heading">Daily P&L<span class="info-wrap" style="margin-left:6px"><span class="info-btn">i</span><span class="info-tip">True daily profit: Stripe cash collected minus Stripe processing fees, estimated EU VAT (21% on EU revenue), and Google Ads spend. This is the actual cash you keep.</span></span></div>
+        <table class="recap-movement">
+            <tr>
+                <td>Gross Revenue</td>
+                <td style="color:var(--accent)">$603.42</td>
+                <td style="color:var(--text-dim)">53 charges</td>
             </tr>
             <tr>
-                <td>Net Cash Flow</td>
-                <td style="color:var(--accent)">$353.34</td>
-                <td style="color:var(--text-dim)">collected</td>
+                <td>Stripe Fees</td>
+                <td style="color:var(--red)">-$46.34</td>
+                <td style="color:var(--text-dim)">processing</td>
+            </tr>
+            <tr>
+                <td>EU VAT (~21%)</td>
+                <td style="color:var(--red)">-$24.24</td>
+                <td style="color:var(--text-dim)">estimated</td>
+            </tr>
+            <tr>
+                <td>Ad Spend</td>
+                <td style="color:var(--red)">-$92.32</td>
+                <td style="color:var(--text-dim)">Google Ads</td>
+            </tr>
+            <tr class="net-row">
+                <td>True Net</td>
+                <td style="color:var(--accent)">+$440.52</td>
+                <td style="color:var(--accent)">profit</td>
             </tr>
         </table>
     </div>
@@ -455,16 +482,23 @@ td.negative { color: var(--red); font-weight: 600; }
         <div class="recap-divider"></div>
         <div class="recap-body">
             <div class="recap-sub-heading">Top MRR Gains</div>
-            <div class="recap-top-grid"><div class="recap-card gain"><div class="rc-name">abensonjoshua@gmail.com</div><div class="rc-detail">New &middot; Premium</div><div class="rc-mrr">+$22.99</div></div><div class="recap-card gain"><div class="rc-name">brennanrussell28@gmail.com</div><div class="rc-detail">New &middot; Pro</div><div class="rc-mrr">+$18.98</div></div><div class="recap-card gain"><div class="rc-name">lucasgeist4@gmail.com</div><div class="rc-detail">New &middot; Standard-Plus</div><div class="rc-mrr">+$18.85</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">ariasyosser8@gmail.com</div><div class="rc-detail">New &middot; Pro</div><div class="rc-mrr">+$17.86</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">zedact36@gmail.com</div><div class="rc-detail">New &middot; Pro</div><div class="rc-mrr">+$14.99</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">brian01agustin09@gmail.com</div><div class="rc-detail">New &middot; Pro</div><div class="rc-mrr">+$14.89</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">gawlucas@gmail.com</div><div class="rc-detail">New &middot; Pro</div><div class="rc-mrr">+$14.89</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">enzo-be@outlook.fr</div><div class="rc-detail">New &middot; Standard-Plus</div><div class="rc-mrr">+$11.99</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">ilovemylifexd3@gmail.com</div><div class="rc-detail">New &middot; Standard-Plus</div><div class="rc-mrr">+$11.99</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">benjalolbenjalol6@gmail.com</div><div class="rc-detail">New &middot; Standard-Plus</div><div class="rc-mrr">+$11.91</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">dc216550@gmail.com</div><div class="rc-detail">New &middot; Standard-Plus</div><div class="rc-mrr">+$11.91</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">gustave.schneider@icloud.com</div><div class="rc-detail">New &middot; Standard</div><div class="rc-mrr">+$8.93</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">jasonbhatti14@gmail.com</div><div class="rc-detail">New &middot; Starter</div><div class="rc-mrr">+$4.96</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">Alex.vel12345@gmail.com</div><div class="rc-detail">New &middot; Starter</div><div class="rc-mrr">+$4.96</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">stangnikita7@gmail.com</div><div class="rc-detail">New &middot; Starter</div><div class="rc-mrr">+$4.96</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">mmsiempre2309@gmail.com</div><div class="rc-detail">New &middot; Starter</div><div class="rc-mrr">+$4.96</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">edson.cardenas0996@gmail.com</div><div class="rc-detail">New &middot; Basic</div><div class="rc-mrr">+$1.98</div></div></div>
-            <button class="recap-expand-btn" onclick="toggleRecap('gains')">Show all 17 &#9660;</button>
+            <div class="recap-top-grid"><div class="recap-card gain"><div class="rc-name">tristanpayne2013@gmail.com</div><div class="rc-detail">New &middot; Premium</div><div class="rc-mrr">+$22.99</div></div><div class="recap-card gain"><div class="rc-name">Carter.m.montgomery@gmail.com</div><div class="rc-detail">New &middot; Pro</div><div class="rc-mrr">+$21.97</div></div><div class="recap-card gain"><div class="rc-name">smoshplayerk@gmail.com</div><div class="rc-detail">New &middot; Pro</div><div class="rc-mrr">+$14.99</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">commandershepard2011@gmail.com</div><div class="rc-detail">New &middot; Pro</div><div class="rc-mrr">+$14.99</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">steedjaxson@gmail.com</div><div class="rc-detail">New &middot; Pro</div><div class="rc-mrr">+$14.99</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">marietta2012@yahoo.de</div><div class="rc-detail">New &middot; Pro</div><div class="rc-mrr">+$14.89</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">valentino.acosta19@gmail.com</div><div class="rc-detail">New &middot; Pro</div><div class="rc-mrr">+$14.89</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">yantenbenjamin6@gmail.com</div><div class="rc-detail">New &middot; Pro</div><div class="rc-mrr">+$14.89</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">marcoscf9@gmail.com</div><div class="rc-detail">New &middot; Pro</div><div class="rc-mrr">+$14.89</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">abenson0987@gmail.com</div><div class="rc-detail">New &middot; Standard-Plus</div><div class="rc-mrr">+$11.99</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">rosemaryjackson123@gmail.com</div><div class="rc-detail">New &middot; Standard-Plus</div><div class="rc-mrr">+$11.99</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">angelvazrulez@gmail.com</div><div class="rc-detail">New &middot; Standard-Plus</div><div class="rc-mrr">+$11.99</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">samurandom666@gmail.com</div><div class="rc-detail">New &middot; Standard-Plus</div><div class="rc-mrr">+$11.91</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">mikahesch12@gmail.com</div><div class="rc-detail">New &middot; Standard</div><div class="rc-mrr">+$8.93</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">mikahesch6@gmail.com</div><div class="rc-detail">New &middot; Standard</div><div class="rc-mrr">+$8.93</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">valter.sterling13@gmail.com</div><div class="rc-detail">New &middot; Starter</div><div class="rc-mrr">+$4.99</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">esccent@gmail.com</div><div class="rc-detail">New &middot; Starter</div><div class="rc-mrr">+$4.99</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">k6164640@gmail.com</div><div class="rc-detail">New &middot; Starter</div><div class="rc-mrr">+$4.99</div></div><div class="recap-card gain" style="display:none" data-recap-overflow="gains"><div class="rc-name">emiszk21@gmail.com</div><div class="rc-detail">New &middot; Starter</div><div class="rc-mrr">+$4.96</div></div></div>
+            <button class="recap-expand-btn" onclick="toggleRecap('gains')">Show all 19 &#9660;</button>
         </div>
     
         <div class="recap-divider"></div>
         <div class="recap-body">
             <div class="recap-sub-heading">Top MRR Losses</div>
-            <div class="recap-top-grid"><div class="recap-card loss"><div class="rc-name">Marcmikhail111@gmail.com</div><div class="rc-detail">Churn &middot; Premium</div><div class="rc-mrr">-$22.99</div></div><div class="recap-card loss"><div class="rc-name">pdracey12@gmail.com</div><div class="rc-detail">Churn &middot; Standard-Plus</div><div class="rc-mrr">-$11.99</div></div><div class="recap-card loss"><div class="rc-name">pepperrvassi@gmail.com</div><div class="rc-detail">Churn &middot; Standard-Plus</div><div class="rc-mrr">-$11.99</div></div><div class="recap-card loss" style="display:none" data-recap-overflow="losses"><div class="rc-name">giordanolucqas9@gmail.com</div><div class="rc-detail">Churn &middot; Standard-Plus</div><div class="rc-mrr">-$11.99</div></div><div class="recap-card loss" style="display:none" data-recap-overflow="losses"><div class="rc-name">lihuecharras@gmail.com</div><div class="rc-detail">Churn &middot; Standard-Plus</div><div class="rc-mrr">-$11.91</div></div><div class="recap-card loss" style="display:none" data-recap-overflow="losses"><div class="rc-name">ondrakral22@gmail.com</div><div class="rc-detail">Churn &middot; Pro</div><div class="rc-mrr">-$9.99</div></div><div class="recap-card loss" style="display:none" data-recap-overflow="losses"><div class="rc-name">zombax.99@gmail.com</div><div class="rc-detail">Churn &middot; Pro</div><div class="rc-mrr">-$9.99</div></div><div class="recap-card loss" style="display:none" data-recap-overflow="losses"><div class="rc-name">carpet22222@gmail.com</div><div class="rc-detail">Churn &middot; Pro</div><div class="rc-mrr">-$9.99</div></div><div class="recap-card loss" style="display:none" data-recap-overflow="losses"><div class="rc-name">kcevans2000@gmail.com</div><div class="rc-detail">Churn &middot; Pro</div><div class="rc-mrr">-$9.99</div></div><div class="recap-card loss" style="display:none" data-recap-overflow="losses"><div class="rc-name">monrm1510@gmail.com</div><div class="rc-detail">Churn &middot; Starter</div><div class="rc-mrr">-$4.96</div></div></div>
-            <button class="recap-expand-btn" onclick="toggleRecap('losses')">Show all 10 &#9660;</button>
+            <div class="recap-top-grid"><div class="recap-card loss"><div class="rc-name">landentimm@gmail.com</div><div class="rc-detail">Churn &middot; Plus</div><div class="rc-mrr">-$18.99</div></div><div class="recap-card loss"><div class="rc-name">howardjoseph728@gmail.com</div><div class="rc-detail">Churn &middot; Standard-Plus</div><div class="rc-mrr">-$15.98</div></div><div class="recap-card loss"><div class="rc-name">sirjoakinio@gmail.com</div><div class="rc-detail">Churn &middot; Pro</div><div class="rc-mrr">-$14.89</div></div><div class="recap-card loss" style="display:none" data-recap-overflow="losses"><div class="rc-name">andriy.tsv@gmail.com</div><div class="rc-detail">Churn &middot; Pro</div><div class="rc-mrr">-$9.99</div></div><div class="recap-card loss" style="display:none" data-recap-overflow="losses"><div class="rc-name">mone@fritzganz.de</div><div class="rc-detail">Churn &middot; Pro</div><div class="rc-mrr">-$9.93</div></div><div class="recap-card loss" style="display:none" data-recap-overflow="losses"><div class="rc-name">mitschkelogan1@gmail.com</div><div class="rc-detail">Churn &middot; Standard</div><div class="rc-mrr">-$8.99</div></div><div class="recap-card loss" style="display:none" data-recap-overflow="losses"><div class="rc-name">tankcharge2848@gmail.com</div><div class="rc-detail">Churn &middot; Standard</div><div class="rc-mrr">-$8.99</div></div><div class="recap-card loss" style="display:none" data-recap-overflow="losses"><div class="rc-name">mikahesch6@gmail.com</div><div class="rc-detail">Refund &middot; Standard</div><div class="rc-mrr">-$8.93</div></div><div class="recap-card loss" style="display:none" data-recap-overflow="losses"><div class="rc-name">archelpro@gmail.com</div><div class="rc-detail">Churn &middot; Starter</div><div class="rc-mrr">-$4.96</div></div></div>
+            <button class="recap-expand-btn" onclick="toggleRecap('losses')">Show all 9 &#9660;</button>
         </div>
+</div>
+
+
+
+<div class="section">
+    <h2><span class="dot" style="background:var(--accent)"></span>Daily P&L (est.)<span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Estimated daily profit: MRR/30 as daily revenue, minus Stripe fees (~3.4%), EU VAT (~21% on ~55% EU revenue), and actual Google Ads spend. Yesterday's row in Daily Recap uses real Stripe charge data instead of estimates.</span></span></h2>
+    <div class="chart-container"><canvas id="chartPnl"></canvas></div>
 </div>
 
 
@@ -473,34 +507,34 @@ td.negative { color: var(--red); font-weight: 600; }
     <div class="kpi-card">
         <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Current active Stripe subscriptions (status=active), filtered to ModReady only. Source: Stripe API.</span></span>
         <div class="label">Active Subscriptions</div>
-        <div class="value">1,082</div>
+        <div class="value">1,076</div>
     </div>
     <div class="kpi-card">
         <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Estimated Monthly Recurring Revenue. Sum of all active subscription amounts, annuals divided by 12, EUR converted at 1.08 EUR/USD. Gross figure before VAT.</span></span>
         <div class="label">MRR (est.)</div>
-        <div class="value green">$11,485</div>
+        <div class="value green">$11,462</div>
     </div>
     <div class="kpi-card">
         <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Average Revenue Per User. MRR / active subscriptions. Shows how much each customer pays on average per month.</span></span>
         <div class="label">ARPU</div>
-        <div class="value">$10.61</div>
+        <div class="value">$10.65</div>
     </div>
     <div class="kpi-card">
-        <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Refund rate: 10 subs canceled within 48h (money-back guarantee) out of 1092 new subs in the period. Indicates onboarding or first-impression issues.</span></span>
+        <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Refund rate: 11 subs canceled within 48h (money-back guarantee) out of 1087 new subs in the period. Indicates onboarding or first-impression issues.</span></span>
         <div class="label">Refund Rate 30d</div>
-        <div class="value" style="color:var(--text)">1.8%</div>
+        <div class="value" style="color:var(--text)">2.0%</div>
     </div>
     <div class="kpi-card">
         <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Net churn rate: (349 gross churn - 1 reactivations) / (active + churned). Excludes money-back refunds. Reactivations offset churn since they represent returning customers, not new acquisitions.</span></span>
         <div class="label">Net Churn 30d</div>
-        <div class="value" style="color:var(--red)">24.3%</div>
+        <div class="value" style="color:var(--red)">24.4%</div>
     </div>
     <div class="kpi-card">
         <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Churn split (last 30 days, cancellations after 48h). Voluntary = customer chose to cancel. Payment Failed = dunning exhausted / payment_failed reason.</span></span>
         <div class="label">Churn Split 30d</div>
         <div class="kpi-dual">
-            <div><div class="tag">Voluntary</div><div class="primary">248</div></div>
-            <div><div class="tag" style="color:#8b5cf6">Pmt Failed</div><div class="secondary" style="color:#8b5cf6">101</div></div>
+            <div><div class="tag">Voluntary</div><div class="primary">247</div></div>
+            <div><div class="tag" style="color:#8b5cf6">Pmt Failed</div><div class="secondary" style="color:#8b5cf6">102</div></div>
         </div>
     </div>
     <div class="kpi-card">
@@ -512,33 +546,33 @@ td.negative { color: var(--red); font-weight: 600; }
         </div>
     </div>
     <div class="kpi-card" style="border-color:var(--red)">
-        <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">At-Risk MRR = renewal dunning $1111 + pending cancellations $50. Excludes 0 failed upgrades ($0/mo) — those customers still have active servers. Red if &gt;10% of MRR, amber if &gt;5%.</span></span>
+        <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">At-Risk MRR = renewal dunning $1221 + pending cancellations $50. Excludes 0 failed upgrades ($0/mo) — those customers still have active servers. Red if &gt;10% of MRR, amber if &gt;5%.</span></span>
         <div class="label">At-Risk MRR</div>
-        <div class="value" style="color:var(--red)">$1,161</div>
-        <div class="dim" style="margin-top:6px">Dunning $1111 &middot; Pending $50 &middot; 10.1% MRR</div>
+        <div class="value" style="color:var(--red)">$1,271</div>
+        <div class="dim" style="margin-top:6px">Dunning $1221 &middot; Pending $50 &middot; 11.1% MRR</div>
     </div>
     <div class="kpi-card">
         <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Cost Per Acquisition. Google Ads spend (SEK/9.0) / actual new Stripe subs. Arrow shows 7d momentum vs 30d average.</span></span>
-        <div class="label">CPA <span style="color:#22c55e;font-size:12px;font-weight:600">-6%</span></div>
+        <div class="label">CPA <span style="color:#22c55e;font-size:12px;font-weight:600">-4%</span></div>
         <div class="kpi-dual">
-            <div><div class="tag">7d</div><div class="primary">$7.28</div></div>
-            <div><div class="tag">30d</div><div class="secondary">$7.73</div></div>
+            <div><div class="tag">7d</div><div class="primary">$7.45</div></div>
+            <div><div class="tag">30d</div><div class="secondary">$7.78</div></div>
         </div>
     </div>
     <div class="kpi-card">
         <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">ROAS (LTV proxy). Formula: (net new MRR &times; 12) / ad spend. Refunds excluded (no revenue received). Assumes 12-month customer lifetime. Arrow shows 7d momentum vs 30d average.</span></span>
         <div class="label">ROAS LTV <span style="color:#22c55e;font-size:12px;font-weight:600">+1%</span></div>
         <div class="kpi-dual">
-            <div><div class="tag">7d</div><div class="primary green">18.00x</div></div>
-            <div><div class="tag">30d</div><div class="secondary">17.76x</div></div>
+            <div><div class="tag">7d</div><div class="primary green">17.78x</div></div>
+            <div><div class="tag">30d</div><div class="secondary">17.69x</div></div>
         </div>
     </div>
     <div class="kpi-card">
-        <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Realized ROAS: avg 31-day customer value ($17.84) / CPA. Based on 1113 customers with 31+ days of history. Includes: initial purchase + first renewal if retained, $0 if refunded. Above 1.0x = ad spend recovered within first month.</span></span>
+        <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Realized ROAS: avg 31-day customer value ($17.85) / CPA. Based on 1133 customers with 31+ days of history. Includes: initial purchase + first renewal if retained, $0 if refunded. Above 1.0x = ad spend recovered within first month.</span></span>
         <div class="label">ROAS Realized 31d</div>
         <div class="kpi-dual">
-            <div><div class="tag">7d CPA</div><div class="primary green">2.45x</div></div>
-            <div><div class="tag">30d CPA</div><div class="secondary">2.31x</div></div>
+            <div><div class="tag">7d CPA</div><div class="primary green">2.40x</div></div>
+            <div><div class="tag">30d CPA</div><div class="secondary">2.29x</div></div>
         </div>
     </div>
     <div class="kpi-card">
@@ -546,7 +580,7 @@ td.negative { color: var(--red); font-weight: 600; }
         <div class="label">Upgrades 7d</div>
         <div class="kpi-dual">
             <div><div class="tag">Count</div><div class="primary green">22</div></div>
-            <div><div class="tag">+MRR</div><div class="secondary green">+$105</div></div>
+            <div><div class="tag">+MRR</div><div class="secondary green">+$110</div></div>
         </div>
     </div>
     <div class="kpi-card">
@@ -554,7 +588,7 @@ td.negative { color: var(--red); font-weight: 600; }
         <div class="label">Upgrades 30d</div>
         <div class="kpi-dual">
             <div><div class="tag">Count</div><div class="primary green">100</div></div>
-            <div><div class="tag">Avg +MRR</div><div class="secondary">+$5.80</div></div>
+            <div><div class="tag">Avg +MRR</div><div class="secondary">+$5.86</div></div>
         </div>
     </div>
 </div>
@@ -598,758 +632,772 @@ td.negative { color: var(--red); font-weight: 600; }
 <!-- Section: Churn Risk Pipeline -->
 <div class="grid-2">
     <div class="section">
-        <h2><span class="dot" style="background:#ef4444"></span>Past Due — Renewal Dunning (110 subs, $1111/mo)<span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Subscriptions where a renewal payment failed — these are genuine churn risks. Sorted by days in dunning. Amber = 8-14d, Red = 15+ days. Excludes failed upgrades (shown separately).</span></span></h2>
+        <h2><span class="dot" style="background:#ef4444"></span>Past Due — Renewal Dunning (121 subs, $1221/mo)<span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Subscriptions where a renewal payment failed — these are genuine churn risks. Sorted by days in dunning. Amber = 8-14d, Red = 15+ days. Excludes failed upgrades (shown separately).</span></span></h2>
         <div style="overflow-y:auto;max-height:320px">
         <table>
             <thead><tr><th>Plan</th><th>$/mo</th><th>Region</th><th>Days Dunning</th><th>Period Ends</th></tr></thead>
             <tbody>
         <tr>
-            <td>Pro</td>
-            <td>$9.99</td>
-            <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">13.8d</td>
-            <td>2026-04-10</td>
-        </tr>
-        <tr>
-            <td>Starter</td>
-            <td>$4.96</td>
-            <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">13.5d</td>
-            <td>2026-04-11</td>
-        </tr>
-        <tr>
-            <td>Standard-Plus</td>
-            <td>$11.91</td>
-            <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">13.4d</td>
-            <td>2026-04-11</td>
-        </tr>
-        <tr>
             <td>Standard</td>
             <td>$8.99</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">12.5d</td>
+            <td style="color:#f59e0b;font-weight:600">13.2d</td>
             <td>2026-04-12</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$9.99</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">12.5d</td>
+            <td style="color:#f59e0b;font-weight:600">13.2d</td>
             <td>2026-04-12</td>
         </tr>
         <tr>
             <td>Starter</td>
             <td>$4.99</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">12.5d</td>
+            <td style="color:#f59e0b;font-weight:600">13.2d</td>
             <td>2026-04-12</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$14.99</td>
             <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">12.2d</td>
+            <td style="color:#f59e0b;font-weight:600">13.0d</td>
             <td>2026-04-12</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$9.99</td>
             <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">11.8d</td>
+            <td style="color:#f59e0b;font-weight:600">12.5d</td>
             <td>2026-04-12</td>
-        </tr>
-        <tr>
-            <td>Standard-Plus</td>
-            <td>$11.91</td>
-            <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">11.5d</td>
-            <td>2026-04-13</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$9.99</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">11.5d</td>
+            <td style="color:#f59e0b;font-weight:600">12.3d</td>
             <td>2026-04-13</td>
         </tr>
         <tr>
             <td>Basic</td>
             <td>$1.98</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">11.4d</td>
+            <td style="color:#f59e0b;font-weight:600">12.2d</td>
+            <td>2026-04-13</td>
+        </tr>
+        <tr>
+            <td>Standard-Plus</td>
+            <td>$11.91</td>
+            <td>Europe</td>
+            <td style="color:#f59e0b;font-weight:600">12.2d</td>
             <td>2026-04-13</td>
         </tr>
         <tr>
             <td>Standard</td>
             <td>$8.99</td>
             <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">11.0d</td>
+            <td style="color:#f59e0b;font-weight:600">11.7d</td>
             <td>2026-04-13</td>
         </tr>
         <tr>
             <td>Starter</td>
             <td>$4.96</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">10.6d</td>
+            <td style="color:#f59e0b;font-weight:600">11.4d</td>
             <td>2026-04-13</td>
         </tr>
         <tr>
             <td>Starter</td>
             <td>$4.99</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">10.6d</td>
+            <td style="color:#f59e0b;font-weight:600">11.3d</td>
             <td>2026-04-13</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$9.99</td>
+            <td>North America</td>
+            <td style="color:#f59e0b;font-weight:600">11.1d</td>
+            <td>2026-04-14</td>
+        </tr>
+        <tr>
+            <td>Starter</td>
+            <td>$4.99</td>
+            <td>Europe</td>
+            <td style="color:#f59e0b;font-weight:600">10.6d</td>
+            <td>2026-04-14</td>
+        </tr>
+        <tr>
+            <td>Standard</td>
+            <td>$8.93</td>
+            <td>Europe</td>
+            <td style="color:#f59e0b;font-weight:600">10.6d</td>
+            <td>2026-04-14</td>
+        </tr>
+        <tr>
+            <td>Starter</td>
+            <td>$4.96</td>
+            <td>North America</td>
+            <td style="color:#f59e0b;font-weight:600">10.6d</td>
+            <td>2026-04-14</td>
+        </tr>
+        <tr>
+            <td>Standard-Plus</td>
+            <td>$11.99</td>
+            <td>North America</td>
+            <td style="color:#f59e0b;font-weight:600">10.5d</td>
+            <td>2026-04-14</td>
+        </tr>
+        <tr>
+            <td>Plus</td>
+            <td>$18.87</td>
             <td>North America</td>
             <td style="color:#f59e0b;font-weight:600">10.4d</td>
             <td>2026-04-14</td>
         </tr>
         <tr>
             <td>Starter</td>
-            <td>$4.96</td>
-            <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">9.9d</td>
-            <td>2026-04-14</td>
-        </tr>
-        <tr>
-            <td>Starter</td>
-            <td>$4.99</td>
-            <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">9.8d</td>
-            <td>2026-04-14</td>
-        </tr>
-        <tr>
-            <td>Standard</td>
-            <td>$8.93</td>
-            <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">9.8d</td>
-            <td>2026-04-14</td>
-        </tr>
-        <tr>
-            <td>Standard-Plus</td>
-            <td>$11.99</td>
-            <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">9.7d</td>
-            <td>2026-04-14</td>
-        </tr>
-        <tr>
-            <td>Plus</td>
-            <td>$18.87</td>
-            <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">9.6d</td>
-            <td>2026-04-14</td>
-        </tr>
-        <tr>
-            <td>Starter</td>
             <td>$4.99</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">9.4d</td>
+            <td style="color:#f59e0b;font-weight:600">10.1d</td>
             <td>2026-04-15</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$14.99</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">9.3d</td>
+            <td style="color:#f59e0b;font-weight:600">10.0d</td>
             <td>2026-04-15</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
             <td>$15.98</td>
             <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">9.1d</td>
+            <td style="color:#f59e0b;font-weight:600">9.8d</td>
             <td>2026-04-15</td>
         </tr>
         <tr>
             <td>Enterprise</td>
             <td>$29.99</td>
             <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">9.1d</td>
+            <td style="color:#f59e0b;font-weight:600">9.8d</td>
             <td>2026-04-15</td>
         </tr>
         <tr>
             <td>Basic</td>
             <td>$1.98</td>
             <td>Asia</td>
-            <td style="color:#f59e0b;font-weight:600">8.9d</td>
+            <td style="color:#f59e0b;font-weight:600">9.6d</td>
             <td>2026-04-15</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$18.98</td>
             <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">8.8d</td>
+            <td style="color:#f59e0b;font-weight:600">9.5d</td>
             <td>2026-04-15</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
             <td>$11.91</td>
             <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">8.7d</td>
+            <td style="color:#f59e0b;font-weight:600">9.4d</td>
             <td>2026-04-15</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
             <td>$11.99</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">8.5d</td>
+            <td style="color:#f59e0b;font-weight:600">9.2d</td>
             <td>2026-04-16</td>
         </tr>
         <tr>
             <td>Enterprise</td>
             <td>$29.80</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">8.5d</td>
+            <td style="color:#f59e0b;font-weight:600">9.2d</td>
             <td>2026-04-16</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
             <td>$11.91</td>
             <td>North America</td>
+            <td style="color:#f59e0b;font-weight:600">9.1d</td>
+            <td>2026-04-16</td>
+        </tr>
+        <tr>
+            <td>Starter</td>
+            <td>$4.99</td>
+            <td>Europe</td>
+            <td style="color:#f59e0b;font-weight:600">8.7d</td>
+            <td>2026-04-16</td>
+        </tr>
+        <tr>
+            <td>Starter</td>
+            <td>$4.99</td>
+            <td>Europe</td>
+            <td style="color:#f59e0b;font-weight:600">8.6d</td>
+            <td>2026-04-16</td>
+        </tr>
+        <tr>
+            <td>Standard-Plus</td>
+            <td>$11.99</td>
+            <td>Europe</td>
+            <td style="color:#f59e0b;font-weight:600">8.5d</td>
+            <td>2026-04-16</td>
+        </tr>
+        <tr>
+            <td>Standard-Plus</td>
+            <td>$11.99</td>
+            <td>North America</td>
+            <td style="color:#f59e0b;font-weight:600">8.3d</td>
+            <td>2026-04-17</td>
+        </tr>
+        <tr>
+            <td>Standard-Plus</td>
+            <td>$11.99</td>
+            <td>North America</td>
             <td style="color:#f59e0b;font-weight:600">8.3d</td>
             <td>2026-04-16</td>
-        </tr>
-        <tr>
-            <td>Starter</td>
-            <td>$4.99</td>
-            <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">8.0d</td>
-            <td>2026-04-16</td>
-        </tr>
-        <tr>
-            <td>Starter</td>
-            <td>$4.99</td>
-            <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">7.9d</td>
-            <td>2026-04-16</td>
-        </tr>
-        <tr>
-            <td>Standard-Plus</td>
-            <td>$11.99</td>
-            <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">7.8d</td>
-            <td>2026-04-16</td>
-        </tr>
-        <tr>
-            <td>Standard-Plus</td>
-            <td>$11.99</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">7.6d</td>
-            <td>2026-04-16</td>
-        </tr>
-        <tr>
-            <td>Standard-Plus</td>
-            <td>$11.99</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">7.5d</td>
-            <td>2026-04-17</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$9.93</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">7.5d</td>
+            <td style="color:#f59e0b;font-weight:600">8.2d</td>
             <td>2026-04-17</td>
         </tr>
         <tr>
             <td>Standard</td>
             <td>$8.93</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">7.4d</td>
+            <td style="color:#f59e0b;font-weight:600">8.1d</td>
             <td>2026-04-17</td>
         </tr>
         <tr>
             <td>Standard</td>
             <td>$8.93</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">7.1d</td>
+            <td style="color:var(--text);font-weight:600">7.8d</td>
             <td>2026-04-17</td>
         </tr>
         <tr>
             <td>Starter</td>
             <td>$4.99</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">7.0d</td>
+            <td style="color:var(--text);font-weight:600">7.7d</td>
             <td>2026-04-17</td>
         </tr>
         <tr>
             <td>Plus</td>
             <td>$18.99</td>
             <td>Asia</td>
-            <td style="color:var(--text);font-weight:600">6.8d</td>
+            <td style="color:var(--text);font-weight:600">7.6d</td>
             <td>2026-04-17</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$9.99</td>
             <td>Singapore</td>
-            <td style="color:var(--text);font-weight:600">6.8d</td>
+            <td style="color:var(--text);font-weight:600">7.5d</td>
             <td>2026-04-17</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
             <td>$11.99</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">6.7d</td>
+            <td style="color:var(--text);font-weight:600">7.4d</td>
             <td>2026-04-17</td>
+        </tr>
+        <tr>
+            <td>Basic</td>
+            <td>$1.99</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">7.3d</td>
+            <td>2026-04-18</td>
+        </tr>
+        <tr>
+            <td>Standard-Plus</td>
+            <td>$11.99</td>
+            <td>Europe</td>
+            <td style="color:var(--text);font-weight:600">7.3d</td>
+            <td>2026-04-17</td>
+        </tr>
+        <tr>
+            <td>Basic</td>
+            <td>$1.98</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">7.2d</td>
+            <td>2026-04-18</td>
+        </tr>
+        <tr>
+            <td>Starter</td>
+            <td>$4.96</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">7.2d</td>
+            <td>2026-04-18</td>
+        </tr>
+        <tr>
+            <td>Starter</td>
+            <td>$4.99</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">7.0d</td>
+            <td>2026-04-18</td>
+        </tr>
+        <tr>
+            <td>Standard</td>
+            <td>$8.99</td>
+            <td>Australia</td>
+            <td style="color:var(--text);font-weight:600">6.9d</td>
+            <td>2026-04-18</td>
+        </tr>
+        <tr>
+            <td>Standard</td>
+            <td>$8.99</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">6.9d</td>
+            <td>2026-04-18</td>
+        </tr>
+        <tr>
+            <td>Pro</td>
+            <td>$9.93</td>
+            <td>Europe</td>
+            <td style="color:var(--text);font-weight:600">6.7d</td>
+            <td>2026-04-18</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
             <td>$11.99</td>
             <td>Europe</td>
             <td style="color:var(--text);font-weight:600">6.6d</td>
-            <td>2026-04-17</td>
-        </tr>
-        <tr>
-            <td>Starter</td>
-            <td>$4.96</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">6.5d</td>
-            <td>2026-04-18</td>
-        </tr>
-        <tr>
-            <td>Basic</td>
-            <td>$1.99</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">6.5d</td>
-            <td>2026-04-18</td>
-        </tr>
-        <tr>
-            <td>Basic</td>
-            <td>$1.98</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">6.4d</td>
-            <td>2026-04-18</td>
-        </tr>
-        <tr>
-            <td>Standard</td>
-            <td>$8.99</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">6.2d</td>
-            <td>2026-04-18</td>
-        </tr>
-        <tr>
-            <td>Starter</td>
-            <td>$4.99</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">6.2d</td>
-            <td>2026-04-18</td>
-        </tr>
-        <tr>
-            <td>Standard</td>
-            <td>$8.99</td>
-            <td>Australia</td>
-            <td style="color:var(--text);font-weight:600">6.1d</td>
-            <td>2026-04-18</td>
-        </tr>
-        <tr>
-            <td>Pro</td>
-            <td>$9.93</td>
-            <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">6.0d</td>
-            <td>2026-04-18</td>
-        </tr>
-        <tr>
-            <td>Standard-Plus</td>
-            <td>$11.99</td>
-            <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">5.9d</td>
             <td>2026-04-18</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
             <td>$11.91</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">5.7d</td>
+            <td style="color:var(--text);font-weight:600">6.5d</td>
             <td>2026-04-18</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$9.93</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">5.7d</td>
+            <td style="color:var(--text);font-weight:600">6.5d</td>
             <td>2026-04-18</td>
         </tr>
         <tr>
             <td>Lite</td>
             <td>$1.99</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">5.7d</td>
+            <td style="color:var(--text);font-weight:600">6.5d</td>
             <td>2026-04-18</td>
         </tr>
         <tr>
             <td>Standard</td>
             <td>$8.99</td>
             <td>Asia</td>
-            <td style="color:var(--text);font-weight:600">5.6d</td>
+            <td style="color:var(--text);font-weight:600">6.3d</td>
             <td>2026-04-18</td>
+        </tr>
+        <tr>
+            <td>Standard-Plus</td>
+            <td>$11.99</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">6.2d</td>
+            <td>2026-04-19</td>
         </tr>
         <tr>
             <td>Plus</td>
             <td>$18.99</td>
             <td>Asia</td>
-            <td style="color:var(--text);font-weight:600">5.5d</td>
+            <td style="color:var(--text);font-weight:600">6.2d</td>
             <td>2026-04-19</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
             <td>$11.99</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">5.4d</td>
-            <td>2026-04-19</td>
-        </tr>
-        <tr>
-            <td>Standard-Plus</td>
-            <td>$11.99</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">5.3d</td>
+            <td style="color:var(--text);font-weight:600">6.1d</td>
             <td>2026-04-19</td>
         </tr>
         <tr>
             <td>Plus</td>
             <td>$18.99</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">5.2d</td>
+            <td style="color:var(--text);font-weight:600">5.9d</td>
             <td>2026-04-19</td>
         </tr>
         <tr>
             <td>Standard</td>
             <td>$8.93</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">4.9d</td>
-            <td>2026-04-19</td>
-        </tr>
-        <tr>
-            <td>Pro</td>
-            <td>$9.99</td>
-            <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">4.9d</td>
+            <td style="color:var(--text);font-weight:600">5.7d</td>
             <td>2026-04-19</td>
         </tr>
         <tr>
             <td>Starter</td>
             <td>$4.99</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">4.8d</td>
+            <td style="color:var(--text);font-weight:600">5.6d</td>
+            <td>2026-04-19</td>
+        </tr>
+        <tr>
+            <td>Pro</td>
+            <td>$9.99</td>
+            <td>Europe</td>
+            <td style="color:var(--text);font-weight:600">5.6d</td>
             <td>2026-04-19</td>
         </tr>
         <tr>
             <td>Premium</td>
             <td>$22.99</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">4.7d</td>
+            <td style="color:var(--text);font-weight:600">5.5d</td>
             <td>2026-04-19</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$9.93</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">4.7d</td>
+            <td style="color:var(--text);font-weight:600">5.4d</td>
             <td>2026-04-19</td>
         </tr>
         <tr>
             <td>Lite</td>
             <td>$1.99</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">4.7d</td>
+            <td style="color:var(--text);font-weight:600">5.4d</td>
             <td>2026-04-19</td>
+        </tr>
+        <tr>
+            <td>Standard-Plus</td>
+            <td>$11.91</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">5.3d</td>
+            <td>2026-04-20</td>
         </tr>
         <tr>
             <td>Standard</td>
             <td>$7.49</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">4.6d</td>
+            <td style="color:var(--text);font-weight:600">5.3d</td>
             <td>2026-04-19</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$9.99</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">4.6d</td>
+            <td style="color:var(--text);font-weight:600">5.3d</td>
             <td>2026-04-19</td>
         </tr>
         <tr>
             <td>Starter</td>
             <td>$4.96</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">4.5d</td>
-            <td>2026-04-20</td>
-        </tr>
-        <tr>
-            <td>Standard-Plus</td>
-            <td>$11.91</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">4.5d</td>
+            <td style="color:var(--text);font-weight:600">5.2d</td>
             <td>2026-04-20</td>
         </tr>
         <tr>
             <td>Starter</td>
             <td>$4.96</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">4.4d</td>
+            <td style="color:var(--text);font-weight:600">5.1d</td>
             <td>2026-04-20</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$14.99</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">4.2d</td>
+            <td style="color:var(--text);font-weight:600">4.9d</td>
             <td>2026-04-20</td>
         </tr>
         <tr>
             <td>Starter</td>
             <td>$4.99</td>
             <td>Australia</td>
-            <td style="color:var(--text);font-weight:600">4.0d</td>
+            <td style="color:var(--text);font-weight:600">4.8d</td>
             <td>2026-04-20</td>
         </tr>
         <tr>
             <td>Premium</td>
             <td>$26.98</td>
             <td>Asia</td>
-            <td style="color:var(--text);font-weight:600">3.9d</td>
+            <td style="color:var(--text);font-weight:600">4.6d</td>
             <td>2026-04-20</td>
         </tr>
         <tr>
             <td>Plus</td>
             <td>$18.99</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">3.9d</td>
+            <td style="color:var(--text);font-weight:600">4.6d</td>
             <td>2026-04-20</td>
         </tr>
         <tr>
             <td>Lite</td>
             <td>$1.99</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">3.7d</td>
+            <td style="color:var(--text);font-weight:600">4.4d</td>
             <td>2026-04-20</td>
         </tr>
         <tr>
             <td>Enterprise</td>
             <td>$19.99</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">3.6d</td>
+            <td style="color:var(--text);font-weight:600">4.3d</td>
             <td>2026-04-20</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$9.93</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">3.6d</td>
+            <td style="color:var(--text);font-weight:600">4.3d</td>
             <td>2026-04-20</td>
-        </tr>
-        <tr>
-            <td>Plus</td>
-            <td>$18.87</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">3.5d</td>
-            <td>2026-04-21</td>
-        </tr>
-        <tr>
-            <td>Starter</td>
-            <td>$4.99</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">3.5d</td>
-            <td>2026-04-21</td>
-        </tr>
-        <tr>
-            <td>Starter</td>
-            <td>$4.96</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">3.4d</td>
-            <td>2026-04-21</td>
         </tr>
         <tr>
             <td>Micro</td>
             <td>$1.99</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">3.4d</td>
+            <td style="color:var(--text);font-weight:600">4.2d</td>
+            <td>2026-04-21</td>
+        </tr>
+        <tr>
+            <td>Plus</td>
+            <td>$18.87</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">4.2d</td>
             <td>2026-04-21</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$9.99</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">3.4d</td>
+            <td style="color:var(--text);font-weight:600">4.2d</td>
+            <td>2026-04-21</td>
+        </tr>
+        <tr>
+            <td>Starter</td>
+            <td>$4.99</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">4.2d</td>
+            <td>2026-04-21</td>
+        </tr>
+        <tr>
+            <td>Starter</td>
+            <td>$4.96</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">4.1d</td>
             <td>2026-04-21</td>
         </tr>
         <tr>
             <td>Enterprise</td>
             <td>$19.99</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">3.1d</td>
-            <td>2026-04-21</td>
-        </tr>
-        <tr>
-            <td>Starter</td>
-            <td>$4.99</td>
-            <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">3.0d</td>
-            <td>2026-04-21</td>
-        </tr>
-        <tr>
-            <td>Pro</td>
-            <td>$9.99</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">2.8d</td>
-            <td>2026-04-21</td>
-        </tr>
-        <tr>
-            <td>Starter</td>
-            <td>$4.99</td>
-            <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">2.8d</td>
+            <td style="color:var(--text);font-weight:600">3.8d</td>
             <td>2026-04-21</td>
         </tr>
         <tr>
             <td>Lite</td>
             <td>$1.99</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">2.7d</td>
+            <td style="color:var(--text);font-weight:600">3.5d</td>
+            <td>2026-04-21</td>
+        </tr>
+        <tr>
+            <td>Pro</td>
+            <td>$9.99</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">3.5d</td>
+            <td>2026-04-21</td>
+        </tr>
+        <tr>
+            <td>Starter</td>
+            <td>$4.99</td>
+            <td>Europe</td>
+            <td style="color:var(--text);font-weight:600">3.5d</td>
             <td>2026-04-21</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
             <td>$11.99</td>
             <td>Australia</td>
-            <td style="color:var(--text);font-weight:600">2.4d</td>
+            <td style="color:var(--text);font-weight:600">3.1d</td>
             <td>2026-04-22</td>
         </tr>
         <tr>
             <td>Basic</td>
             <td>$1.98</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">2.4d</td>
-            <td>2026-04-22</td>
-        </tr>
-        <tr>
-            <td>Standard-Plus</td>
-            <td>$11.99</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">2.4d</td>
+            <td style="color:var(--text);font-weight:600">3.1d</td>
             <td>2026-04-22</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
             <td>$11.91</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">1.8d</td>
+            <td style="color:var(--text);font-weight:600">2.5d</td>
             <td>2026-04-22</td>
         </tr>
         <tr>
             <td>Lite</td>
             <td>$1.99</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">1.7d</td>
+            <td style="color:var(--text);font-weight:600">2.4d</td>
             <td>2026-04-22</td>
         </tr>
         <tr>
             <td>Lite</td>
             <td>$1.99</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">1.7d</td>
+            <td style="color:var(--text);font-weight:600">2.4d</td>
             <td>2026-04-22</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$14.99</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">1.6d</td>
+            <td style="color:var(--text);font-weight:600">2.3d</td>
             <td>2026-04-22</td>
         </tr>
         <tr>
             <td>Starter</td>
             <td>$4.99</td>
             <td>Singapore</td>
-            <td style="color:var(--text);font-weight:600">1.6d</td>
+            <td style="color:var(--text);font-weight:600">2.3d</td>
             <td>2026-04-22</td>
         </tr>
         <tr>
             <td>Standard</td>
             <td>$7.44</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">1.5d</td>
+            <td style="color:var(--text);font-weight:600">2.2d</td>
             <td>2026-04-23</td>
         </tr>
         <tr>
             <td>Standard</td>
             <td>$8.99</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">1.5d</td>
-            <td>2026-04-23</td>
-        </tr>
-        <tr>
-            <td>Standard</td>
-            <td>$8.99</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">1.3d</td>
+            <td style="color:var(--text);font-weight:600">2.2d</td>
             <td>2026-04-23</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
             <td>$11.99</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">1.3d</td>
+            <td style="color:var(--text);font-weight:600">2.1d</td>
+            <td>2026-04-23</td>
+        </tr>
+        <tr>
+            <td>Standard</td>
+            <td>$8.99</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">2.0d</td>
             <td>2026-04-23</td>
         </tr>
         <tr>
             <td>Starter</td>
             <td>$4.96</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">0.7d</td>
+            <td style="color:var(--text);font-weight:600">1.4d</td>
             <td>2026-04-23</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
             <td>$11.91</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">0.7d</td>
+            <td style="color:var(--text);font-weight:600">1.4d</td>
             <td>2026-04-23</td>
         </tr>
         <tr>
             <td>Plus</td>
             <td>$12.99</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">0.7d</td>
+            <td style="color:var(--text);font-weight:600">1.4d</td>
             <td>2026-04-23</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$9.99</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">0.7d</td>
+            <td style="color:var(--text);font-weight:600">1.4d</td>
             <td>2026-04-23</td>
         </tr>
         <tr>
             <td>Pro</td>
             <td>$9.99</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">0.7d</td>
-            <td>2026-04-23</td>
-        </tr>
-        <tr>
-            <td>Pro</td>
-            <td>$9.99</td>
-            <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">0.7d</td>
+            <td style="color:var(--text);font-weight:600">1.4d</td>
             <td>2026-04-23</td>
         </tr>
         <tr>
             <td>Plus</td>
             <td>$18.87</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">0.5d</td>
+            <td style="color:var(--text);font-weight:600">1.3d</td>
             <td>2026-04-24</td>
         </tr>
         <tr>
             <td>Starter</td>
             <td>$9.99</td>
             <td>North America</td>
+            <td style="color:var(--text);font-weight:600">1.2d</td>
+            <td>2026-04-24</td>
+        </tr>
+        <tr>
+            <td>Pro</td>
+            <td>$9.99</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">1.1d</td>
+            <td>2026-04-24</td>
+        </tr>
+        <tr>
+            <td>Plus</td>
+            <td>$12.99</td>
+            <td>Asia</td>
+            <td style="color:var(--text);font-weight:600">1.1d</td>
+            <td>2026-04-24</td>
+        </tr>
+        <tr>
+            <td>Plus</td>
+            <td>$16.98</td>
+            <td>Australia</td>
+            <td style="color:var(--text);font-weight:600">0.8d</td>
+            <td>2026-04-24</td>
+        </tr>
+        <tr>
+            <td>Standard-Plus</td>
+            <td>$11.91</td>
+            <td>Europe</td>
+            <td style="color:var(--text);font-weight:600">0.7d</td>
+            <td>2026-04-24</td>
+        </tr>
+        <tr>
+            <td>Standard-Plus</td>
+            <td>$15.98</td>
+            <td>Europe</td>
             <td style="color:var(--text);font-weight:600">0.5d</td>
+            <td>2026-04-24</td>
+        </tr>
+        <tr>
+            <td>Lite</td>
+            <td>$1.98</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">0.5d</td>
+            <td>2026-04-24</td>
+        </tr>
+        <tr>
+            <td>Pro</td>
+            <td>$18.86</td>
+            <td>Europe</td>
+            <td style="color:var(--text);font-weight:600">0.4d</td>
+            <td>2026-04-24</td>
+        </tr>
+        <tr>
+            <td>Starter</td>
+            <td>$4.99</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">0.4d</td>
             <td>2026-04-24</td>
         </tr>
         <tr>
@@ -1360,18 +1408,81 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-24</td>
         </tr>
         <tr>
-            <td>Plus</td>
-            <td>$12.99</td>
-            <td>Asia</td>
-            <td style="color:var(--text);font-weight:600">0.4d</td>
+            <td>Basic</td>
+            <td>$1.98</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">0.3d</td>
+            <td>2026-04-25</td>
+        </tr>
+        <tr>
+            <td>Standard</td>
+            <td>$8.99</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">0.3d</td>
+            <td>2026-04-24</td>
+        </tr>
+        <tr>
+            <td>Standard</td>
+            <td>$8.93</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">0.3d</td>
             <td>2026-04-24</td>
         </tr>
         <tr>
             <td>Pro</td>
-            <td>$9.99</td>
-            <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">0.1d</td>
+            <td>$9.93</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">0.3d</td>
             <td>2026-04-24</td>
+        </tr>
+        <tr>
+            <td>Standard</td>
+            <td>$8.93</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">0.2d</td>
+            <td>2026-04-25</td>
+        </tr>
+        <tr>
+            <td>Standard</td>
+            <td>$8.93</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">0.2d</td>
+            <td>2026-04-25</td>
+        </tr>
+        <tr>
+            <td>Standard</td>
+            <td>$8.99</td>
+            <td>Europe</td>
+            <td style="color:var(--text);font-weight:600">0.2d</td>
+            <td>2026-04-25</td>
+        </tr>
+        <tr>
+            <td>Standard-Plus</td>
+            <td>$11.91</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">0.2d</td>
+            <td>2026-04-25</td>
+        </tr>
+        <tr>
+            <td>Pro</td>
+            <td>$9.99</td>
+            <td>Australia</td>
+            <td style="color:var(--text);font-weight:600">0.2d</td>
+            <td>2026-04-25</td>
+        </tr>
+        <tr>
+            <td>Pro</td>
+            <td>$9.99</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">0.2d</td>
+            <td>2026-04-25</td>
+        </tr>
+        <tr>
+            <td>Starter</td>
+            <td>$4.96</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">0.1d</td>
+            <td>2026-04-25</td>
         </tr></tbody>
         </table>
         </div>
@@ -1429,51 +1540,51 @@ td.negative { color: var(--red); font-weight: 600; }
         <tbody>
         <tr>
             <td style="font-weight:500">ModReady - LATAM</td>
-            <td>41d</td>
-            <td>30,553<span class="dim"> / 3,901</span></td>
+            <td>42d</td>
+            <td>30,963<span class="dim"> / 3,849</span></td>
             <td>48%</td>
-            <td>9,581<span class="dim"> / 1,342</span></td>
+            <td>9,736<span class="dim"> / 1,336</span></td>
             <td>10.0%</td>
-            <td>2709<span class="dim"> / 384</span></td>
-            <td>$1.25<span class="dim"> / $1.13</span> <span style="color:#22c55e;font-size:12px;font-weight:600">-10%</span></td>
-            <td class="positive">1.40x<span class="dim"> / 1.59x</span> <span style="color:#22c55e;font-size:12px;font-weight:600">+14%</span></td>
+            <td>2766<span class="dim"> / 385</span></td>
+            <td>$1.24<span class="dim"> / $1.11</span> <span style="color:#22c55e;font-size:12px;font-weight:600">-11%</span></td>
+            <td class="positive">1.42x<span class="dim"> / 1.65x</span> <span style="color:#22c55e;font-size:12px;font-weight:600">+16%</span></td>
             <td style="color:#22c55e;font-weight:600">1.37</td>
         </tr>
         <tr>
             <td style="font-weight:500">ModReady - Generic Hosting (ENG)</td>
-            <td>41d</td>
-            <td>20,724<span class="dim"> / 1,924</span></td>
+            <td>42d</td>
+            <td>20,998<span class="dim"> / 1,925</span></td>
             <td>33%</td>
-            <td>2,662<span class="dim"> / 274</span></td>
+            <td>2,700<span class="dim"> / 272</span></td>
             <td>11.9%</td>
-            <td>732<span class="dim"> / 50</span></td>
-            <td>$3.15<span class="dim"> / $4.28</span> <span style="color:#ef4444;font-size:12px;font-weight:600">+36%</span></td>
-            <td class="negative">0.80x<span class="dim"> / 0.49x</span> <span style="color:#ef4444;font-size:12px;font-weight:600">-39%</span></td>
+            <td>741<span class="dim"> / 48</span></td>
+            <td>$3.15<span class="dim"> / $4.46</span> <span style="color:#ef4444;font-size:12px;font-weight:600">+42%</span></td>
+            <td class="negative">0.80x<span class="dim"> / 0.60x</span> <span style="color:#ef4444;font-size:12px;font-weight:600">-26%</span></td>
             <td style="color:#ef4444;font-weight:600">0.54</td>
         </tr>
         <tr>
             <td style="font-weight:500">ModReady - Generic Hosting (DACH - DE/AT/CH)</td>
-            <td>41d</td>
-            <td>9,922<span class="dim"> / 1,474</span></td>
+            <td>42d</td>
+            <td>10,044<span class="dim"> / 1,508</span></td>
             <td>16%</td>
-            <td>1,690<span class="dim"> / 234</span></td>
+            <td>1,718<span class="dim"> / 243</span></td>
             <td>7.6%</td>
-            <td>489<span class="dim"> / 69</span></td>
-            <td>$2.25<span class="dim"> / $2.38</span> <span style="color:#ef4444;font-size:12px;font-weight:600">+5%</span></td>
-            <td class="negative">0.93x<span class="dim"> / 0.69x</span> <span style="color:#ef4444;font-size:12px;font-weight:600">-26%</span></td>
+            <td>497<span class="dim"> / 72</span></td>
+            <td>$2.25<span class="dim"> / $2.33</span> <span style="color:#ef4444;font-size:12px;font-weight:600">+4%</span></td>
+            <td class="negative">0.96x<span class="dim"> / 0.87x</span> <span style="color:#ef4444;font-size:12px;font-weight:600">-9%</span></td>
             <td style="color:#ef4444;font-weight:600">0.76</td>
         </tr>
         <tr>
             <td style="font-weight:500">ModReady - Brand</td>
-            <td>36d</td>
-            <td>1,106<span class="dim"> / 237</span></td>
+            <td>37d</td>
+            <td>1,132<span class="dim"> / 226</span></td>
             <td>2%</td>
-            <td>749<span class="dim"> / 102</span></td>
-            <td>23.4%</td>
-            <td>131<span class="dim"> / 14</span></td>
-            <td>$0.94<span class="dim"> / $1.90</span> <span style="color:#ef4444;font-size:12px;font-weight:600">+102%</span></td>
-            <td class="positive">3.51x<span class="dim"> / 1.68x</span> <span style="color:#ef4444;font-size:12px;font-weight:600">-52%</span></td>
-            <td style="color:#22c55e;font-weight:600">1.82</td>
+            <td>761<span class="dim"> / 92</span></td>
+            <td>23.3%</td>
+            <td>132<span class="dim"> / 13</span></td>
+            <td>$0.96<span class="dim"> / $1.95</span> <span style="color:#ef4444;font-size:12px;font-weight:600">+104%</span></td>
+            <td class="positive">3.44x<span class="dim"> / 1.72x</span> <span style="color:#ef4444;font-size:12px;font-weight:600">-50%</span></td>
+            <td style="color:#22c55e;font-weight:600">1.78</td>
         </tr>
         <tr>
             <td style="font-weight:500">ModReady - Cheap Hosting <span style="background:#22c55e;color:#030712;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;margin-left:6px">NEW</span></td>
@@ -1535,7 +1646,7 @@ td.negative { color: var(--red); font-weight: 600; }
 </div>
 
 <script>
-const LABELS = ["2026-02-22", "2026-02-23", "2026-02-24", "2026-02-25", "2026-02-26", "2026-02-27", "2026-02-28", "2026-03-01", "2026-03-02", "2026-03-03", "2026-03-04", "2026-03-05", "2026-03-06", "2026-03-07", "2026-03-08", "2026-03-09", "2026-03-10", "2026-03-11", "2026-03-12", "2026-03-13", "2026-03-14", "2026-03-15", "2026-03-16", "2026-03-17", "2026-03-18", "2026-03-19", "2026-03-20", "2026-03-21", "2026-03-22", "2026-03-23"];
+const LABELS = ["2026-02-23", "2026-02-24", "2026-02-25", "2026-02-26", "2026-02-27", "2026-02-28", "2026-03-01", "2026-03-02", "2026-03-03", "2026-03-04", "2026-03-05", "2026-03-06", "2026-03-07", "2026-03-08", "2026-03-09", "2026-03-10", "2026-03-11", "2026-03-12", "2026-03-13", "2026-03-14", "2026-03-15", "2026-03-16", "2026-03-17", "2026-03-18", "2026-03-19", "2026-03-20", "2026-03-21", "2026-03-22", "2026-03-23", "2026-03-24"];
 const chartDefaults = {
     responsive: true,
     maintainAspectRatio: false,
@@ -1574,7 +1685,7 @@ new Chart(document.getElementById('chartSubs'), {
         datasets: [
             {
                 label: 'New MRR ($)',
-                data: [280.56, 226.82, 329.32, 246.28, 223.57, 265.73, 234.62, 306.97, 142.28, 183.69, 197.44, 177.42, 248.83, 254.95, 198.07, 129.63, 170.55, 125.49, 193.56, 117.3, 437.83, 254.44, 182.54, 234.15, 139.56, 74.23, 170.9, 265.32, 157.95, 213.91],
+                data: [226.82, 329.32, 246.28, 223.57, 265.73, 234.62, 306.97, 142.28, 183.69, 197.44, 177.42, 248.83, 254.95, 198.07, 129.63, 170.55, 125.49, 193.56, 117.3, 437.83, 254.44, 182.54, 234.15, 139.56, 74.23, 170.9, 265.32, 157.95, 213.91, 223.26],
                 backgroundColor: 'rgba(34,197,94,0.15)',
                 borderColor: 'rgba(34,197,94,0.4)',
                 borderWidth: 1,
@@ -1583,7 +1694,7 @@ new Chart(document.getElementById('chartSubs'), {
             },
             {
                 label: 'New Subs',
-                data: [25, 18, 25, 19, 19, 22, 20, 26, 11, 16, 20, 15, 23, 23, 17, 10, 16, 11, 14, 13, 30, 23, 13, 21, 13, 10, 15, 22, 16, 18],
+                data: [18, 25, 19, 19, 22, 20, 26, 11, 16, 20, 15, 23, 23, 17, 10, 16, 11, 14, 13, 30, 23, 13, 21, 13, 10, 15, 22, 16, 18, 18],
                 borderColor: '#22c55e',
                 backgroundColor: 'rgba(34,197,94,0.1)',
                 type: 'line',
@@ -1618,7 +1729,7 @@ new Chart(document.getElementById('chartSpend'), {
         datasets: [
             {
                 label: 'Spend (SEK)',
-                data: [1086.83, 1104.12, 4044.09, 1988.41, 1254.25, 1206.95, 1091.38, 1148.94, 1035.65, 1169.32, 1384.49, 1233.87, 1227.98, 1191.35, 1166.52, 1053.98, 1112.89, 1075.84, 1008.7, 1134.4, 1365.45, 1348.78, 895.03, 859.87, 1125.33, 1152.87, 1176.1, 1207.13, 1144.35, 871.54],
+                data: [1104.12, 4044.09, 1988.41, 1254.25, 1206.95, 1091.38, 1148.94, 1035.65, 1169.32, 1384.49, 1233.87, 1227.98, 1191.35, 1166.52, 1053.98, 1112.89, 1075.84, 1008.7, 1134.4, 1365.45, 1348.78, 895.03, 859.87, 1125.33, 1152.87, 1176.1, 1207.13, 1144.35, 871.54, 830.87],
                 backgroundColor: 'rgba(59,130,246,0.2)',
                 borderColor: 'rgba(59,130,246,0.5)',
                 borderWidth: 1,
@@ -1627,7 +1738,7 @@ new Chart(document.getElementById('chartSpend'), {
             },
             {
                 label: 'CPA (USD)',
-                data: [4.83, 6.82, 17.97, 11.63, 7.33, 6.1, 6.06, 4.91, 10.46, 8.12, 7.69, 9.14, 5.93, 5.76, 7.62, 11.71, 7.73, 10.87, 8.01, 9.7, 5.06, 6.52, 7.65, 4.55, 9.62, 12.81, 8.71, 6.1, 7.95, 5.38],
+                data: [6.82, 17.97, 11.63, 7.33, 6.1, 6.06, 4.91, 10.46, 8.12, 7.69, 9.14, 5.93, 5.76, 7.62, 11.71, 7.73, 10.87, 8.01, 9.7, 5.06, 6.52, 7.65, 4.55, 9.62, 12.81, 8.71, 6.1, 7.95, 5.38, 5.13],
                 borderColor: '#f59e0b',
                 type: 'line',
                 tension: 0.3,
@@ -1661,7 +1772,7 @@ new Chart(document.getElementById('chartRoas'), {
         datasets: [
             {
                 label: 'ROAS',
-                data: [27.88, 21.31, 8.47, 13.38, 19.25, 22.44, 23.22, 27.73, 14.84, 16.97, 15.4, 14.74, 21.88, 23.11, 17.88, 13.28, 16.55, 12.6, 20.72, 9.75, 34.63, 17.98, 15.76, 29.41, 13.39, 6.95, 15.69, 23.74, 14.91, 26.51],
+                data: [21.31, 8.47, 13.38, 19.25, 22.44, 23.22, 27.73, 14.84, 16.97, 15.4, 14.74, 21.88, 23.11, 17.88, 13.28, 16.55, 12.6, 20.72, 9.75, 34.63, 17.98, 15.76, 29.41, 13.39, 6.95, 15.69, 23.74, 14.91, 26.51, 27.86],
                 borderColor: '#f59e0b',
                 backgroundColor: (ctx) => {
                     const v = ctx.raw;
@@ -1718,7 +1829,7 @@ new Chart(document.getElementById('chartRates'), {
         datasets: [
             {
                 label: 'CTR (%)',
-                data: [10.0, 12.26, 8.94, 11.28, 9.51, 9.88, 10.5, 10.14, 11.72, 10.95, 10.19, 11.18, 10.55, 10.94, 9.81, 9.52, 11.63, 9.63, 9.68, 9.75, 10.2, 9.69, 10.55, 9.97, 9.73, 9.95, 9.72, 9.61, 10.01, 9.23],
+                data: [12.26, 8.94, 11.28, 9.51, 9.88, 10.5, 10.14, 11.72, 10.95, 10.19, 11.18, 10.55, 10.94, 9.81, 9.52, 11.63, 9.63, 9.68, 9.75, 10.2, 9.69, 10.55, 9.97, 9.73, 9.95, 9.72, 9.61, 10.01, 9.23, 9.07],
                 borderColor: '#3b82f6',
                 tension: 0.3,
                 pointRadius: 2,
@@ -1727,7 +1838,7 @@ new Chart(document.getElementById('chartRates'), {
             },
             {
                 label: 'Conv Rate (%)',
-                data: [31.82, 29.48, 24.73, 24.62, 29.62, 28.23, 27.19, 29.01, 22.86, 25.75, 25.91, 26.68, 23.68, 23.32, 25.07, 23.84, 30.23, 31.43, 27.56, 26.82, 28.7, 22.98, 25.33, 30.69, 25.27, 28.98, 26.42, 24.13, 20.92, 31.24],
+                data: [29.48, 24.73, 24.62, 29.62, 28.23, 27.19, 29.01, 22.86, 25.75, 25.91, 26.68, 23.68, 23.32, 25.07, 23.84, 30.23, 31.43, 27.56, 26.82, 28.7, 22.98, 25.33, 30.69, 25.27, 28.98, 26.42, 24.13, 20.92, 32.15, 31.25],
                 borderColor: '#22c55e',
                 tension: 0.3,
                 pointRadius: 2,
@@ -1753,7 +1864,7 @@ new Chart(document.getElementById('chartTraffic'), {
         datasets: [
             {
                 label: 'Impressions',
-                data: [2201, 1908, 6468, 3299, 3871, 3602, 3049, 3313, 2987, 3186, 3495, 3113, 3403, 3401, 3518, 3172, 2744, 2939, 2902, 2944, 3381, 3323, 2606, 2428, 2785, 2835, 2902, 3425, 3056, 2601],
+                data: [1908, 6468, 3299, 3871, 3602, 3049, 3313, 2987, 3186, 3495, 3113, 3403, 3401, 3518, 3172, 2744, 2939, 2902, 2944, 3381, 3323, 2606, 2428, 2785, 2835, 2902, 3425, 3056, 2601, 2568],
                 backgroundColor: 'rgba(59,130,246,0.15)',
                 borderColor: 'rgba(59,130,246,0.4)',
                 borderWidth: 1,
@@ -1762,7 +1873,7 @@ new Chart(document.getElementById('chartTraffic'), {
             },
             {
                 label: 'Clicks',
-                data: [220, 234, 578, 372, 368, 356, 320, 336, 350, 349, 356, 348, 359, 372, 345, 302, 319, 283, 281, 287, 345, 322, 275, 242, 271, 282, 282, 329, 306, 240],
+                data: [234, 578, 372, 368, 356, 320, 336, 350, 349, 356, 348, 359, 372, 345, 302, 319, 283, 281, 287, 345, 322, 275, 242, 271, 282, 282, 329, 306, 240, 233],
                 borderColor: '#22c55e',
                 type: 'line',
                 tension: 0.3,
@@ -1791,35 +1902,35 @@ new Chart(document.getElementById('chartChurn'), {
         datasets: [
             {
                 label: 'New Subs',
-                data: [25, 18, 25, 19, 19, 22, 20, 26, 11, 16, 20, 15, 23, 23, 17, 10, 16, 11, 14, 13, 30, 23, 13, 21, 13, 10, 15, 22, 16, 18],
+                data: [18, 25, 19, 19, 22, 20, 26, 11, 16, 20, 15, 23, 23, 17, 10, 16, 11, 14, 13, 30, 23, 13, 21, 13, 10, 15, 22, 16, 18, 18],
                 backgroundColor: 'rgba(34,197,94,0.5)',
                 borderColor: '#22c55e',
                 borderWidth: 1,
             },
             {
                 label: 'Reactivations',
-                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 backgroundColor: 'rgba(6,182,212,0.5)',
                 borderColor: '#06b6d4',
                 borderWidth: 1,
             },
             {
                 label: 'Refund (≤48h)',
-                data: [0, -1, -1, 0, 0, -1, 0, -1, 0, 0, 0, -1, 0, 0, -1, 0, 0, 0, 0, -1, 0, -2, -1, 0, 0, 0, 0, 0, 0, 0],
+                data: [-1, -1, 0, 0, -1, 0, -1, 0, 0, 0, -1, 0, 0, -1, 0, 0, 0, 0, -1, 0, -2, -1, 0, 0, 0, 0, 0, 0, 0, -1],
                 backgroundColor: 'rgba(245,158,11,0.5)',
                 borderColor: '#f59e0b',
                 borderWidth: 1,
             },
             {
                 label: 'Voluntary Churn (>48h)',
-                data: [-7, -13, -6, -6, -6, -5, -24, -13, -8, -3, -4, -6, -6, -8, -13, -2, -5, -7, -5, -8, -9, -9, -14, -8, -12, -9, -9, -6, -8, -8],
+                data: [-13, -6, -6, -6, -5, -24, -13, -8, -3, -4, -6, -6, -8, -13, -2, -5, -7, -5, -8, -9, -9, -14, -8, -12, -9, -9, -6, -8, -8, -6],
                 backgroundColor: 'rgba(239,68,68,0.5)',
                 borderColor: '#ef4444',
                 borderWidth: 1,
             },
             {
                 label: 'Payment Failed Churn',
-                data: [-2, -1, -3, -3, -5, -2, -2, -1, -4, -3, -3, -4, -1, -8, -4, -7, -2, -5, -3, 0, -10, -11, -3, -3, -3, -3, 0, -1, -3, -1],
+                data: [-1, -3, -3, -5, -2, -2, -1, -4, -3, -3, -4, -1, -8, -4, -7, -2, -5, -3, 0, -10, -11, -3, -3, -3, -3, 0, -1, -3, -1, -1],
                 backgroundColor: 'rgba(139,92,246,0.5)',
                 borderColor: '#8b5cf6',
                 borderWidth: 1,
@@ -1848,7 +1959,7 @@ new Chart(document.getElementById('chartMrrMove'), {
         datasets: [
             {
                 label: 'New MRR ($)',
-                data: [280.56, 226.82, 329.32, 246.28, 223.57, 265.73, 234.62, 306.97, 142.28, 183.69, 197.44, 177.42, 248.83, 254.95, 198.07, 129.63, 170.55, 125.49, 193.56, 117.3, 437.83, 254.44, 182.54, 234.15, 139.56, 74.23, 170.9, 265.32, 157.95, 213.91],
+                data: [226.82, 329.32, 246.28, 223.57, 265.73, 234.62, 306.97, 142.28, 183.69, 197.44, 177.42, 248.83, 254.95, 198.07, 129.63, 170.55, 125.49, 193.56, 117.3, 437.83, 254.44, 182.54, 234.15, 139.56, 74.23, 170.9, 265.32, 157.95, 213.91, 223.26],
                 backgroundColor: 'rgba(34,197,94,0.4)',
                 borderColor: '#22c55e',
                 borderWidth: 1,
@@ -1856,7 +1967,7 @@ new Chart(document.getElementById('chartMrrMove'), {
             },
             {
                 label: 'Reactivation MRR ($)',
-                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9.99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9.99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 backgroundColor: 'rgba(6,182,212,0.4)',
                 borderColor: '#06b6d4',
                 borderWidth: 1,
@@ -1864,7 +1975,7 @@ new Chart(document.getElementById('chartMrrMove'), {
             },
             {
                 label: 'Refund MRR ($)',
-                data: [0, -8.93, -11.99, 0, 0, -14.99, 0, -11.99, 0, 0, 0, -8.99, 0, 0, -4.99, 0, 0, 0, 0, -14.89, 0, -29.88, -51.97, 0, 0, 0, 0, 0, 0, 0],
+                data: [-8.93, -11.99, 0, 0, -14.99, 0, -11.99, 0, 0, 0, -8.99, 0, 0, -4.99, 0, 0, 0, 0, -14.89, 0, -29.88, -51.97, 0, 0, 0, 0, 0, 0, 0, -8.93],
                 backgroundColor: 'rgba(245,158,11,0.4)',
                 borderColor: '#f59e0b',
                 borderWidth: 1,
@@ -1872,7 +1983,7 @@ new Chart(document.getElementById('chartMrrMove'), {
             },
             {
                 label: 'Churned MRR ($)',
-                data: [-89.72, -170.19, -84.91, -81.89, -109.87, -80.93, -330.16, -171.45, -130.59, -60.36, -72.87, -104.33, -105.37, -183.63, -272.16, -85.33, -75.87, -115.78, -71.8, -106.46, -210.38, -261.89, -189.95, -146.38, -163.31, -143.54, -89.66, -113.86, -120.64, -108.78],
+                data: [-170.19, -84.91, -81.89, -109.87, -80.93, -330.16, -171.45, -130.59, -60.36, -72.87, -104.33, -105.37, -183.63, -272.16, -85.33, -75.87, -115.78, -71.8, -106.46, -210.38, -261.89, -189.95, -146.38, -163.31, -143.54, -89.66, -113.86, -120.64, -108.78, -77.82],
                 backgroundColor: 'rgba(239,68,68,0.4)',
                 borderColor: '#ef4444',
                 borderWidth: 1,
@@ -1880,7 +1991,7 @@ new Chart(document.getElementById('chartMrrMove'), {
             },
             {
                 label: 'Net MRR ($)',
-                data: [190.84, 47.7, 232.42, 164.39, 113.7, 169.81, -95.54, 123.53, 11.69, 123.33, 124.57, 64.1, 143.46, 71.32, -79.08, 44.3, 94.68, 9.71, 131.75, -4.05, 227.45, -37.33, -59.38, 87.77, -23.75, -69.31, 81.24, 151.46, 37.31, 105.13],
+                data: [47.7, 232.42, 164.39, 113.7, 169.81, -95.54, 123.53, 11.69, 123.33, 124.57, 64.1, 143.46, 71.32, -79.08, 44.3, 94.68, 9.71, 131.75, -4.05, 227.45, -37.33, -59.38, 87.77, -23.75, -69.31, 81.24, 151.46, 37.31, 105.13, 136.51],
                 borderColor: '#3b82f6',
                 type: 'line',
                 tension: 0.3,
@@ -1913,28 +2024,28 @@ new Chart(document.getElementById('chartCampaignSpend'), {
         datasets: [
             {
                 label: 'LATAM',
-                data: [525.35, 569.18, 2268.71, 1286.14, 619.31, 617.73, 564.69, 606.64, 620.98, 665.01, 634.97, 627.42, 654.95, 672.43, 614.07, 590.89, 548.43, 589.3, 521.73, 591.67, 732.93, 655.34, 485.71, 462.38, 542.4, 584.18, 655.99, 676.33, 593.96, 386.24],
+                data: [569.18, 2268.71, 1286.14, 619.31, 617.73, 564.69, 606.64, 620.98, 665.01, 634.97, 627.42, 654.95, 672.43, 614.07, 590.89, 548.43, 589.3, 521.73, 591.67, 732.93, 655.34, 485.71, 462.38, 542.4, 584.18, 655.99, 676.33, 593.96, 386.24, 409.65],
                 backgroundColor: '#3b82f680',
                 borderColor: '#3b82f6',
                 borderWidth: 1,
             },
             {
                 label: 'Generic Hosting (ENG)',
-                data: [512.08, 497.22, 1599.19, 579.12, 303.66, 300.67, 295.17, 299.48, 302.89, 350.41, 313.73, 326.72, 316.34, 313.31, 299.52, 285.31, 283.93, 270.41, 268.05, 283.42, 408.9, 388.27, 283.65, 272.51, 277.42, 241.63, 280.31, 260.1, 293.3, 298.84],
+                data: [497.22, 1599.19, 579.12, 303.66, 300.67, 295.17, 299.48, 302.89, 350.41, 313.73, 326.72, 316.34, 313.31, 299.52, 285.31, 283.93, 270.41, 268.05, 283.42, 408.9, 388.27, 283.65, 272.51, 277.42, 241.63, 280.31, 260.1, 293.3, 298.84, 273.76],
                 backgroundColor: '#22c55e80',
                 borderColor: '#22c55e',
                 borderWidth: 1,
             },
             {
                 label: 'Generic Hosting (DACH - DE/AT/CH)',
-                data: [46.65, 35.89, 166.3, 90.21, 272.07, 234.82, 202.76, 207.39, 78.47, 123.67, 399.97, 241.05, 220.06, 182.71, 227.78, 170.4, 234.81, 178.41, 156.96, 226.99, 173.52, 268.2, 84.8, 88.39, 269.33, 291.21, 206.77, 239.82, 223.55, 155.2],
+                data: [35.89, 166.3, 90.21, 272.07, 234.82, 202.76, 207.39, 78.47, 123.67, 399.97, 241.05, 220.06, 182.71, 227.78, 170.4, 234.81, 178.41, 156.96, 226.99, 173.52, 268.2, 84.8, 88.39, 269.33, 291.21, 206.77, 239.82, 223.55, 155.2, 122.18],
                 backgroundColor: '#f59e0b80',
                 borderColor: '#f59e0b',
                 borderWidth: 1,
             },
             {
                 label: 'Brand',
-                data: [2.75, 1.83, 9.89, 32.94, 59.21, 53.73, 28.76, 35.43, 33.31, 30.23, 35.82, 38.68, 36.63, 22.9, 25.15, 7.38, 45.72, 37.72, 61.96, 32.32, 50.1, 36.97, 40.87, 36.59, 36.18, 35.85, 33.03, 30.88, 33.54, 31.26],
+                data: [1.83, 9.89, 32.94, 59.21, 53.73, 28.76, 35.43, 33.31, 30.23, 35.82, 38.68, 36.63, 22.9, 25.15, 7.38, 45.72, 37.72, 61.96, 32.32, 50.1, 36.97, 40.87, 36.59, 36.18, 35.85, 33.03, 30.88, 33.54, 31.26, 25.28],
                 backgroundColor: '#ef444480',
                 borderColor: '#ef4444',
                 borderWidth: 1,
@@ -1977,7 +2088,7 @@ new Chart(document.getElementById('chartArpu'), {
         datasets: [
             {
                 label: 'ARPU — new subs ($)',
-                data: [11.22, 12.6, 13.17, 12.96, 11.77, 12.08, 11.73, 11.81, 12.93, 11.48, 9.87, 11.83, 10.82, 11.08, 11.65, 12.96, 10.66, 11.41, 13.83, 9.02, 14.59, 11.06, 14.04, 11.15, 10.74, 7.42, 11.39, 12.06, 9.87, 11.88],
+                data: [12.6, 13.17, 12.96, 11.77, 12.08, 11.73, 11.81, 12.93, 11.48, 9.87, 11.83, 10.82, 11.08, 11.65, 12.96, 10.66, 11.41, 13.83, 9.02, 14.59, 11.06, 14.04, 11.15, 10.74, 7.42, 11.39, 12.06, 9.87, 11.88, 12.4],
                 borderColor: '#f59e0b',
                 backgroundColor: 'rgba(245,158,11,0.1)',
                 tension: 0.3,
@@ -2009,7 +2120,7 @@ new Chart(document.getElementById('chartUpgrades'), {
         datasets: [
             {
                 label: 'Upgrades (count)',
-                data: [1, 1, 2, 4, 3, 1, 5, 5, 2, 2, 5, 4, 3, 0, 5, 1, 5, 6, 3, 5, 2, 9, 4, 2, 0, 6, 4, 2, 5, 3],
+                data: [0, 2, 4, 3, 1, 5, 5, 2, 2, 5, 4, 3, 0, 5, 1, 5, 6, 3, 5, 2, 9, 4, 2, 0, 6, 4, 2, 5, 3, 0],
                 backgroundColor: 'rgba(16,185,129,0.7)',
                 borderColor: '#10b981',
                 borderWidth: 1,
@@ -2018,7 +2129,7 @@ new Chart(document.getElementById('chartUpgrades'), {
             },
             {
                 label: 'Expansion MRR (+$)',
-                data: [2.98, 2.48, 8.96, 23.5, 7.98, 7.0, 52.46, 60.42, 5.5, 3.5, 31.5, 19.43, 14.98, 0, 43.62, 5.5, 17.42, 35.48, 12.0, 22.95, 6.05, 69.96, 21.45, 5.5, 0, 42.46, 15.96, 9.48, 14.97, 16.5],
+                data: [0, 8.96, 23.5, 7.98, 7.0, 52.46, 60.42, 5.5, 3.5, 31.5, 19.43, 14.98, 0, 43.62, 5.5, 17.42, 35.48, 12.0, 22.95, 6.05, 69.96, 21.45, 5.5, 0, 42.46, 15.96, 9.48, 14.97, 16.5, 0],
                 type: 'line',
                 borderColor: '#34d399',
                 backgroundColor: 'rgba(52,211,153,0.1)',
@@ -2055,7 +2166,7 @@ new Chart(document.getElementById('chartAtRisk'), {
         datasets: [
             {
                 label: 'Dunning MRR ($)',
-                data: [null, null, null, null, null, null, null, null, null, null, 877.97, null, 810.04, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1004.18, null],
+                data: [null, null, null, null, null, null, null, null, null, 877.97, null, 810.04, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1004.18, 0.0, null],
                 borderColor: '#f97316',
                 backgroundColor: 'rgba(249,115,22,0.1)',
                 tension: 0.3,
@@ -2068,7 +2179,7 @@ new Chart(document.getElementById('chartAtRisk'), {
             },
             {
                 label: 'Pending Cancel MRR ($)',
-                data: [null, null, null, null, null, null, null, null, null, null, 116.4, null, 94.41, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 69.91, null],
+                data: [null, null, null, null, null, null, null, null, null, 116.4, null, 94.41, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 69.91, 0.0, null],
                 borderColor: '#eab308',
                 backgroundColor: 'rgba(234,179,8,0.1)',
                 tension: 0.3,
@@ -2081,7 +2192,7 @@ new Chart(document.getElementById('chartAtRisk'), {
             },
             {
                 label: '% of MRR',
-                data: 10.105696476774549,
+                data: 11.089591993726737,
                 borderColor: '#ef4444',
                 borderDash: [5, 5],
                 tension: 0.3,
@@ -2127,6 +2238,91 @@ new Chart(document.getElementById('chartAtRisk'), {
         }
     }
 });
+
+// Chart — Daily P&L
+if (document.getElementById('chartPnl')) {
+new Chart(document.getElementById('chartPnl'), {
+    type: 'bar',
+    data: {
+        labels: ["2026-02-23", "2026-02-24", "2026-02-25", "2026-02-26", "2026-02-27", "2026-02-28", "2026-03-01", "2026-03-02", "2026-03-03", "2026-03-04", "2026-03-05", "2026-03-06", "2026-03-07", "2026-03-08", "2026-03-09", "2026-03-10", "2026-03-11", "2026-03-12", "2026-03-13", "2026-03-14", "2026-03-15", "2026-03-16", "2026-03-17", "2026-03-18", "2026-03-19", "2026-03-20", "2026-03-21", "2026-03-22", "2026-03-23", "2026-03-24"],
+        datasets: [
+            {
+                label: 'Est. Revenue ($/day)',
+                data: [382.06, 382.06, 382.06, 382.06, 382.06, 382.06, 382.06, 382.06, 382.06, 351.24, 382.06, 357.87, 382.06, 382.06, 382.06, 382.06, 382.06, 382.06, 382.06, 382.06, 382.06, 382.06, 382.06, 382.06, 382.06, 382.06, 382.06, 379.93, 0.0, 382.06],
+                backgroundColor: 'rgba(34,197,94,0.25)',
+                borderColor: '#22c55e',
+                borderWidth: 1,
+                borderRadius: 3,
+                order: 2,
+            },
+            {
+                label: 'Stripe Fees',
+                data: [12.99, 12.99, 12.99, 12.99, 12.99, 12.99, 12.99, 12.99, 12.99, 11.94, 12.99, 12.17, 12.99, 12.99, 12.99, 12.99, 12.99, 12.99, 12.99, 12.99, 12.99, 12.99, 12.99, 12.99, 12.99, 12.99, 12.99, 12.92, 0.0, 12.99],
+                backgroundColor: 'rgba(239,68,68,0.15)',
+                borderColor: 'rgba(239,68,68,0.5)',
+                borderWidth: 1,
+                borderRadius: 3,
+                order: 3,
+            },
+            {
+                label: 'EU VAT',
+                data: [44.13, 44.13, 44.13, 44.13, 44.13, 44.13, 44.13, 44.13, 44.13, 40.57, 44.13, 41.33, 44.13, 44.13, 44.13, 44.13, 44.13, 44.13, 44.13, 44.13, 44.13, 44.13, 44.13, 44.13, 44.13, 44.13, 44.13, 43.88, 0.0, 44.13],
+                backgroundColor: 'rgba(245,158,11,0.15)',
+                borderColor: 'rgba(245,158,11,0.5)',
+                borderWidth: 1,
+                borderRadius: 3,
+                order: 4,
+            },
+            {
+                label: 'Ad Spend',
+                data: [122.68, 449.34, 220.93, 139.36, 134.11, 121.26, 127.66, 115.07, 129.92, 153.83, 137.1, 136.44, 132.37, 129.61, 117.11, 123.65, 119.54, 112.08, 126.04, 151.72, 149.86, 99.45, 95.54, 125.04, 128.1, 130.68, 134.13, 127.15, 96.84, 92.32],
+                backgroundColor: 'rgba(59,130,246,0.15)',
+                borderColor: 'rgba(59,130,246,0.5)',
+                borderWidth: 1,
+                borderRadius: 3,
+                order: 5,
+            },
+            {
+                label: 'Net Profit (est.)',
+                data: [202.26, -124.4, 104.01, 185.58, 190.83, 203.68, 197.28, 209.87, 195.02, 144.9, 187.84, 167.93, 192.57, 195.33, 207.83, 201.29, 205.4, 212.86, 198.9, 173.22, 175.08, 225.49, 229.4, 199.9, 196.84, 194.26, 190.81, 195.98, -96.84, 232.62],
+                type: 'line',
+                borderColor: '#22c55e',
+                backgroundColor: 'rgba(34,197,94,0.08)',
+                tension: 0.3,
+                pointRadius: 4,
+                pointHoverRadius: 7,
+                pointBackgroundColor: [202.26, -124.4, 104.01, 185.58, 190.83, 203.68, 197.28, 209.87, 195.02, 144.9, 187.84, 167.93, 192.57, 195.33, 207.83, 201.29, 205.4, 212.86, 198.9, 173.22, 175.08, 225.49, 229.4, 199.9, 196.84, 194.26, 190.81, 195.98, -96.84, 232.62].map(v => v >= 0 ? '#22c55e' : '#ef4444'),
+                borderWidth: 2.5,
+                fill: true,
+                order: 1,
+            }
+        ]
+    },
+    options: {
+        ...chartDefaults,
+        plugins: {
+            ...chartDefaults.plugins,
+            annotation: {
+                annotations: {
+                    breakeven: {
+                        type: 'line',
+                        yMin: 0,
+                        yMax: 0,
+                        borderColor: 'rgba(255,255,255,0.2)',
+                        borderWidth: 1,
+                        borderDash: [6, 4],
+                    }
+                }
+            }
+        },
+        scales: {
+            ...chartDefaults.scales,
+            x: { ...chartDefaults.scales.x, stacked: false },
+            y: { ...chartDefaults.scales.y, title: { display: true, text: 'USD / day', color: '#6b7280' } }
+        }
+    }
+});
+}
 
 // Daily Recap — expand/collapse
 function toggleRecap(group) {
