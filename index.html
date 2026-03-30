@@ -382,7 +382,7 @@ td.negative { color: var(--red); font-weight: 600; }
 
 <div id="dashboard">
 <h1>ModReady Dashboard</h1>
-<p class="subtitle">Sales & Ads Performance &middot; Generated 2026-03-30 13:11 &middot; 2026-02-28 to 2026-03-28</p>
+<p class="subtitle">Sales & Ads Performance &middot; Generated 2026-03-30 14:11 &middot; 2026-02-28 to 2026-03-28</p>
 <div id="dash-nav"></div>
 <script src="dash-nav.js"></script>
 
@@ -600,9 +600,9 @@ td.negative { color: var(--red); font-weight: 600; }
 
 <!-- Section: Intraday Sales -->
 <div class="section">
-    <h2><span class="dot" style="background:#22c55e"></span>Today's Sales<span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Bars = new subs (green) and upgrades (cyan) per hour. Line = cumulative MRR (new + expansion) vs Monday average (dashed, 4 weeks). Updated hourly via Stripe API.</span></span></h2>
+    <h2><span class="dot" style="background:#22c55e"></span>Today's Sales<span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Bars = new subs (green) and upgrades (cyan) per hour. Line = cumulative MRR (new + expansion) vs Monday average (dashed, 1 weeks). Updated hourly via Stripe API.</span></span></h2>
     <div style="padding:0 16px;margin-bottom:8px;color:var(--text-dim);font-size:13px">
-        1 new subs &middot; $11.99 MRR &middot; <span style="color:var(--red)">-97%</span> vs Monday avg
+        3 new subs &middot; $28.89 MRR &middot; <span style="color:var(--red)">-93%</span> vs Monday avg
     </div>
     <div class="chart-container"><canvas id="chartIntraday"></canvas></div>
     <script>
@@ -613,7 +613,7 @@ td.negative { color: var(--red); font-weight: 600; }
             datasets: [
                 {
                     label: 'New subs',
-                    data: [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     backgroundColor: 'rgba(34,197,94,0.5)',
                     borderColor: '#22c55e',
                     borderWidth: 1,
@@ -633,7 +633,7 @@ td.negative { color: var(--red); font-weight: 600; }
                 },
                 {
                     label: 'Cumulative MRR',
-                    data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 11.99, 11.99, 11.99, 11.99, 11.99, 11.99, 11.99, 11.99, 11.99, 11.99, 11.99, 11.99, 11.99, 11.99, 11.99, 11.99],
+                    data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 11.99, 11.99, 11.99, 11.99, 28.89, 28.89, 28.89, 28.89, 28.89, 28.89, 28.89, 28.89, 28.89, 28.89, 28.89, 28.89],
                     borderColor: '#22c55e',
                     backgroundColor: 'rgba(34,197,94,0.06)',
                     fill: true,
@@ -647,7 +647,7 @@ td.negative { color: var(--red); font-weight: 600; }
                 },
                 {
                 label: 'Monday avg',
-                data: [4.96, 38.85, 102.81, 116.7, 138.55, 144.55, 144.55, 145.54, 157.53, 157.53, 157.53, 164.98, 175.32, 194.17, 213.6, 237.54, 251.43, 289.31, 319.19, 337.05, 353.97, 372.34, 397.56, 409.47],
+                data: [4.96, 38.85, 102.81, 116.7, 138.55, 144.55, 144.55, 145.54, 157.53, 157.53, 157.53, 164.98, 181.88, 200.73, 220.16, 244.1, 257.99, 295.87, 325.75, 343.61, 360.53, 378.9, 404.12, 416.03],
                 borderColor: 'rgba(255,255,255,0.25)',
                 borderDash: [6, 4],
                 borderWidth: 1.5,
@@ -898,7 +898,7 @@ td.negative { color: var(--red); font-weight: 600; }
         <h3 style="color:#e5e7eb;font-size:14px;margin-bottom:8px">Top Converting Landing Pages</h3>
         <table><thead><tr><th>Landing Page</th><th>Conversions</th><th>MRR</th></tr></thead><tbody id="attrLpBody"></tbody></table>
     </div>
-    <p style="color:#4b5563;font-size:11px;margin-top:8px;text-align:right">Snapshot: 2026-03-30 13:11</p>
+    <p style="color:#4b5563;font-size:11px;margin-top:8px;text-align:right">Snapshot: 2026-03-30 14:11</p>
 </div>
 
 
