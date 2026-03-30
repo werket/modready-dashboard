@@ -382,7 +382,7 @@ td.negative { color: var(--red); font-weight: 600; }
 
 <div id="dashboard">
 <h1>ModReady Dashboard</h1>
-<p class="subtitle">Sales & Ads Performance &middot; Generated 2026-03-30 16:11 &middot; 2026-02-28 to 2026-03-28</p>
+<p class="subtitle">Sales & Ads Performance &middot; Generated 2026-03-30 17:48 &middot; 2026-02-28 to 2026-03-28</p>
 <div id="dash-nav"></div>
 <script src="dash-nav.js"></script>
 
@@ -592,8 +592,8 @@ td.negative { color: var(--red); font-weight: 600; }
         <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Plan upgrades in the last 30 days. Expansion MRR = incremental revenue from existing customers upgrading plans. Avg = MRR delta per upgrade. This revenue has zero acquisition cost.</span></span>
         <div class="label">Upgrades 30d</div>
         <div class="kpi-dual">
-            <div><div class="tag">Count</div><div class="primary green">104</div></div>
-            <div><div class="tag">Avg +MRR</div><div class="secondary">+$5.41</div></div>
+            <div><div class="tag">Count</div><div class="primary green">103</div></div>
+            <div><div class="tag">Avg +MRR</div><div class="secondary">+$5.44</div></div>
         </div>
     </div>
 </div>
@@ -602,7 +602,7 @@ td.negative { color: var(--red); font-weight: 600; }
 <div class="section">
     <h2><span class="dot" style="background:#22c55e"></span>Today's Sales<span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Bars = new subs (green) and upgrades (cyan) per hour. Line = cumulative MRR (new + expansion) vs Monday average (dashed, 1 weeks). Updated hourly via Stripe API.</span></span></h2>
     <div style="padding:0 16px;margin-bottom:8px;color:var(--text-dim);font-size:13px">
-        3 new subs &middot; $28.89 MRR &middot; <span style="color:var(--red)">-93%</span> vs Monday avg
+        3 new subs &middot; $28.89 MRR &middot; <span style="color:var(--red)">-92%</span> vs Monday avg
     </div>
     <div class="chart-container"><canvas id="chartIntraday"></canvas></div>
     <script>
@@ -647,7 +647,7 @@ td.negative { color: var(--red); font-weight: 600; }
                 },
                 {
                 label: 'Monday avg',
-                data: [4.96, 38.85, 102.81, 116.7, 138.55, 144.55, 144.55, 145.54, 157.53, 157.53, 157.53, 164.98, 181.88, 191.31, 201.02, 224.96, 238.85, 276.73, 306.61, 324.47, 341.39, 359.76, 384.98, 396.89],
+                data: [4.96, 38.85, 102.81, 116.7, 138.55, 144.55, 144.55, 145.54, 157.53, 157.53, 157.53, 164.98, 181.88, 191.31, 201.02, 212.99, 226.88, 264.76, 294.64, 312.5, 329.42, 347.79, 373.01, 384.92],
                 borderColor: 'rgba(255,255,255,0.25)',
                 borderDash: [6, 4],
                 borderWidth: 1.5,
@@ -898,7 +898,7 @@ td.negative { color: var(--red); font-weight: 600; }
         <h3 style="color:#e5e7eb;font-size:14px;margin-bottom:8px">Top Converting Landing Pages</h3>
         <table><thead><tr><th>Landing Page</th><th>Conversions</th><th>MRR</th></tr></thead><tbody id="attrLpBody"></tbody></table>
     </div>
-    <p style="color:#4b5563;font-size:11px;margin-top:8px;text-align:right">Snapshot: 2026-03-30 16:11</p>
+    <p style="color:#4b5563;font-size:11px;margin-top:8px;text-align:right">Snapshot: 2026-03-30 17:48</p>
 </div>
 
 
@@ -1377,7 +1377,7 @@ new Chart(document.getElementById('chartUpgrades'), {
         datasets: [
             {
                 label: 'Upgrades (count)',
-                data: [4, 5, 2, 2, 5, 4, 3, 0, 5, 1, 5, 6, 3, 5, 2, 9, 4, 2, 0, 6, 4, 2, 5, 3, 0, 3, 2, 3, 4],
+                data: [3, 5, 2, 2, 5, 4, 3, 0, 5, 1, 5, 6, 3, 5, 2, 9, 4, 2, 0, 6, 4, 2, 5, 3, 0, 3, 2, 3, 4],
                 backgroundColor: 'rgba(16,185,129,0.7)',
                 borderColor: '#10b981',
                 borderWidth: 1,
@@ -1386,7 +1386,7 @@ new Chart(document.getElementById('chartUpgrades'), {
             },
             {
                 label: 'Expansion MRR (+$)',
-                data: [12.48, 60.42, 5.5, 3.5, 31.5, 19.43, 14.98, 0, 43.62, 5.5, 17.42, 35.48, 12.0, 22.95, 6.05, 69.96, 21.45, 5.5, 0, 42.46, 15.96, 9.48, 14.97, 16.5, 0, 19.0, 4.98, 9.5, 22.89],
+                data: [9.98, 60.42, 5.5, 3.5, 31.5, 19.43, 14.98, 0, 43.62, 5.5, 17.42, 35.48, 12.0, 22.95, 6.05, 69.96, 21.45, 5.5, 0, 42.46, 15.96, 9.48, 14.97, 16.5, 0, 19.0, 4.98, 9.5, 22.89],
                 type: 'line',
                 borderColor: '#34d399',
                 backgroundColor: 'rgba(52,211,153,0.1)',
