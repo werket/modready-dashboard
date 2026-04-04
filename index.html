@@ -382,7 +382,7 @@ td.negative { color: var(--red); font-weight: 600; }
 
 <div id="dashboard">
 <h1>ModReady Dashboard</h1>
-<p class="subtitle">Sales & Ads Performance &middot; Generated 2026-04-04 07:12 &middot; 2026-03-05 to 2026-04-02</p>
+<p class="subtitle">Sales & Ads Performance &middot; Generated 2026-04-04 08:31 &middot; 2026-03-05 to 2026-04-02</p>
 <div id="dash-nav"></div>
 <script src="dash-nav.js"></script>
 
@@ -453,17 +453,17 @@ td.negative { color: var(--red); font-weight: 600; }
         <table class="recap-movement">
             <tr>
                 <td>Gross Revenue</td>
-                <td style="color:var(--accent)">$344.38</td>
-                <td style="color:var(--text-dim)">35 charges</td>
+                <td style="color:var(--text-dim)">$0.00</td>
+                <td style="color:var(--text-dim)">0 charges</td>
             </tr>
             <tr>
                 <td>Stripe Fees</td>
-                <td style="color:var(--red)">-$24.83</td>
+                <td style="color:var(--red)">-$0.00</td>
                 <td style="color:var(--text-dim)">processing</td>
             </tr>
             <tr>
                 <td>EU VAT (~21%)</td>
-                <td style="color:var(--red)">-$22.32</td>
+                <td style="color:var(--red)">-$0.00</td>
                 <td style="color:var(--text-dim)">estimated</td>
             </tr>
             <tr>
@@ -478,8 +478,8 @@ td.negative { color: var(--red); font-weight: 600; }
             </tr>
             <tr class="net-row">
                 <td>True Net</td>
-                <td style="color:var(--accent)">+$87.11</td>
-                <td style="color:var(--accent)">profit</td>
+                <td style="color:var(--red)">$-210.12</td>
+                <td style="color:var(--red)">loss</td>
             </tr>
         </table>
     </div>
@@ -573,7 +573,7 @@ td.negative { color: var(--red); font-weight: 600; }
         </div>
     </div>
     <div class="kpi-card">
-        <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Realized ROAS: avg 31-day customer value ($18.51) / CPA. Based on 1326 customers with 31+ days of history. Includes: initial purchase + first renewal if retained, $0 if refunded. Above 1.0x = ad spend recovered within first month.</span></span>
+        <span class="info-wrap"><span class="info-btn">i</span><span class="info-tip">Realized ROAS: avg 31-day customer value ($18.51) / CPA. Based on 1327 customers with 31+ days of history. Includes: initial purchase + first renewal if retained, $0 if refunded. Above 1.0x = ad spend recovered within first month.</span></span>
         <div class="label">ROAS Realized 31d</div>
         <div class="kpi-dual">
             <div><div class="tag">7d CPA</div><div class="primary green">2.40x</div></div>
@@ -647,7 +647,7 @@ td.negative { color: var(--red); font-weight: 600; }
                 },
                 {
                 label: 'Saturday avg',
-                data: [8.44, 19.42, 31.33, 49.24, 60.16, 72.1, 72.1, 88.53, 105.5, 110.46, 120.81, 125.77, 143.88, 167.21, 172.17, 181.1, 195.5, 206.17, 232.64, 244.55, 281.0, 297.95, 312.94, 319.89],
+                data: [8.44, 19.42, 31.33, 49.24, 60.16, 72.1, 72.1, 88.53, 97.01, 101.97, 112.32, 117.28, 135.39, 158.72, 163.68, 172.61, 187.01, 197.68, 224.15, 236.06, 272.51, 289.46, 304.45, 311.4],
                 borderColor: 'rgba(255,255,255,0.25)',
                 borderDash: [6, 4],
                 borderWidth: 1.5,
@@ -740,6 +740,20 @@ td.negative { color: var(--red); font-weight: 600; }
             <thead><tr><th>Plan</th><th>$/mo</th><th>Region</th><th>Days Dunning</th><th>Period Ends</th></tr></thead>
             <tbody>
         <tr>
+            <td>Enterprise</td>
+            <td>$19.99</td>
+            <td>North America</td>
+            <td style="color:#f59e0b;font-weight:600">14.3d</td>
+            <td>2026-04-20</td>
+        </tr>
+        <tr>
+            <td>Micro</td>
+            <td>$1.99</td>
+            <td>North America</td>
+            <td style="color:#f59e0b;font-weight:600">14.2d</td>
+            <td>2026-04-21</td>
+        </tr>
+        <tr>
             <td>Plus</td>
             <td>$18.87</td>
             <td>North America</td>
@@ -747,38 +761,24 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-21</td>
         </tr>
         <tr>
-            <td>Enterprise</td>
-            <td>$19.99</td>
-            <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">14.2d</td>
-            <td>2026-04-20</td>
-        </tr>
-        <tr>
-            <td>Micro</td>
-            <td>$1.99</td>
-            <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">14.1d</td>
-            <td>2026-04-21</td>
-        </tr>
-        <tr>
             <td>Pro</td>
             <td>$9.99</td>
             <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">14.1d</td>
+            <td style="color:#f59e0b;font-weight:600">14.2d</td>
             <td>2026-04-21</td>
         </tr>
         <tr>
             <td>Starter</td>
             <td>$4.99</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">14.1d</td>
+            <td style="color:#f59e0b;font-weight:600">14.2d</td>
             <td>2026-04-21</td>
         </tr>
         <tr>
             <td>Starter</td>
             <td>$4.96</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">14.0d</td>
+            <td style="color:#f59e0b;font-weight:600">14.1d</td>
             <td>2026-04-21</td>
         </tr>
         <tr>
@@ -789,17 +789,17 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-21</td>
         </tr>
         <tr>
-            <td>Starter</td>
-            <td>$4.99</td>
-            <td>Europe</td>
+            <td>Pro</td>
+            <td>$9.99</td>
+            <td>North America</td>
             <td style="color:#f59e0b;font-weight:600">13.5d</td>
             <td>2026-04-21</td>
         </tr>
         <tr>
-            <td>Pro</td>
-            <td>$9.99</td>
-            <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">13.4d</td>
+            <td>Starter</td>
+            <td>$4.99</td>
+            <td>Europe</td>
+            <td style="color:#f59e0b;font-weight:600">13.5d</td>
             <td>2026-04-21</td>
         </tr>
         <tr>
@@ -824,6 +824,20 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-22</td>
         </tr>
         <tr>
+            <td>Lite</td>
+            <td>$1.99</td>
+            <td>Europe</td>
+            <td style="color:#f59e0b;font-weight:600">12.4d</td>
+            <td>2026-04-22</td>
+        </tr>
+        <tr>
+            <td>Pro</td>
+            <td>$14.99</td>
+            <td>North America</td>
+            <td style="color:#f59e0b;font-weight:600">12.3d</td>
+            <td>2026-04-22</td>
+        </tr>
+        <tr>
             <td>Starter</td>
             <td>$4.99</td>
             <td>Singapore</td>
@@ -831,24 +845,10 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-22</td>
         </tr>
         <tr>
-            <td>Lite</td>
-            <td>$1.99</td>
-            <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">12.3d</td>
-            <td>2026-04-22</td>
-        </tr>
-        <tr>
-            <td>Pro</td>
-            <td>$14.99</td>
-            <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">12.2d</td>
-            <td>2026-04-22</td>
-        </tr>
-        <tr>
             <td>Standard</td>
             <td>$7.44</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">12.1d</td>
+            <td style="color:#f59e0b;font-weight:600">12.2d</td>
             <td>2026-04-23</td>
         </tr>
         <tr>
@@ -856,6 +856,13 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>$11.99</td>
             <td>North America</td>
             <td style="color:#f59e0b;font-weight:600">12.0d</td>
+            <td>2026-04-23</td>
+        </tr>
+        <tr>
+            <td>Starter</td>
+            <td>$4.96</td>
+            <td>North America</td>
+            <td style="color:#f59e0b;font-weight:600">11.4d</td>
             <td>2026-04-23</td>
         </tr>
         <tr>
@@ -884,13 +891,6 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>$9.99</td>
             <td>Europe</td>
             <td style="color:#f59e0b;font-weight:600">11.4d</td>
-            <td>2026-04-23</td>
-        </tr>
-        <tr>
-            <td>Starter</td>
-            <td>$4.96</td>
-            <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">11.3d</td>
             <td>2026-04-23</td>
         </tr>
         <tr>
@@ -929,6 +929,13 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-24</td>
         </tr>
         <tr>
+            <td>Starter</td>
+            <td>$4.99</td>
+            <td>North America</td>
+            <td style="color:#f59e0b;font-weight:600">10.4d</td>
+            <td>2026-04-24</td>
+        </tr>
+        <tr>
             <td>Standard</td>
             <td>$8.99</td>
             <td>North America</td>
@@ -950,18 +957,25 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-24</td>
         </tr>
         <tr>
-            <td>Starter</td>
-            <td>$4.99</td>
-            <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">10.3d</td>
-            <td>2026-04-24</td>
-        </tr>
-        <tr>
             <td>Pro</td>
             <td>$9.93</td>
             <td>North America</td>
             <td style="color:#f59e0b;font-weight:600">10.3d</td>
             <td>2026-04-24</td>
+        </tr>
+        <tr>
+            <td>Standard</td>
+            <td>$8.93</td>
+            <td>North America</td>
+            <td style="color:#f59e0b;font-weight:600">10.2d</td>
+            <td>2026-04-25</td>
+        </tr>
+        <tr>
+            <td>Standard</td>
+            <td>$8.93</td>
+            <td>North America</td>
+            <td style="color:#f59e0b;font-weight:600">10.2d</td>
+            <td>2026-04-25</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
@@ -971,15 +985,8 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-25</td>
         </tr>
         <tr>
-            <td>Standard</td>
-            <td>$8.93</td>
-            <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">10.1d</td>
-            <td>2026-04-25</td>
-        </tr>
-        <tr>
-            <td>Standard</td>
-            <td>$8.93</td>
+            <td>Starter</td>
+            <td>$4.96</td>
             <td>North America</td>
             <td style="color:#f59e0b;font-weight:600">10.1d</td>
             <td>2026-04-25</td>
@@ -989,13 +996,6 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>$9.99</td>
             <td>Australia</td>
             <td style="color:#f59e0b;font-weight:600">10.1d</td>
-            <td>2026-04-25</td>
-        </tr>
-        <tr>
-            <td>Starter</td>
-            <td>$4.96</td>
-            <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">10.0d</td>
             <td>2026-04-25</td>
         </tr>
         <tr>
@@ -1013,6 +1013,13 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-25</td>
         </tr>
         <tr>
+            <td>Pro</td>
+            <td>$14.99</td>
+            <td>North America</td>
+            <td style="color:#f59e0b;font-weight:600">9.1d</td>
+            <td>2026-04-26</td>
+        </tr>
+        <tr>
             <td>Basic</td>
             <td>$1.98</td>
             <td>North America</td>
@@ -1022,22 +1029,15 @@ td.negative { color: var(--red); font-weight: 600; }
         <tr>
             <td>Pro</td>
             <td>$14.99</td>
-            <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">9.0d</td>
-            <td>2026-04-26</td>
-        </tr>
-        <tr>
-            <td>Pro</td>
-            <td>$14.99</td>
             <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">8.7d</td>
+            <td style="color:#f59e0b;font-weight:600">8.8d</td>
             <td>2026-04-26</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
             <td>$11.91</td>
             <td>Europe</td>
-            <td style="color:#f59e0b;font-weight:600">8.4d</td>
+            <td style="color:#f59e0b;font-weight:600">8.5d</td>
             <td>2026-04-26</td>
         </tr>
         <tr>
@@ -1048,15 +1048,15 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-26</td>
         </tr>
         <tr>
-            <td>Standard</td>
-            <td>$8.93</td>
+            <td>Pro</td>
+            <td>$9.99</td>
             <td>North America</td>
-            <td style="color:#f59e0b;font-weight:600">8.1d</td>
+            <td style="color:#f59e0b;font-weight:600">8.2d</td>
             <td>2026-04-27</td>
         </tr>
         <tr>
-            <td>Pro</td>
-            <td>$9.99</td>
+            <td>Standard</td>
+            <td>$8.93</td>
             <td>North America</td>
             <td style="color:#f59e0b;font-weight:600">8.1d</td>
             <td>2026-04-27</td>
@@ -1065,12 +1065,19 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>Premium</td>
             <td>$22.99</td>
             <td>Australia</td>
-            <td style="color:var(--text);font-weight:600">7.7d</td>
+            <td style="color:var(--text);font-weight:600">7.8d</td>
             <td>2026-04-27</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
             <td>$11.91</td>
+            <td>Europe</td>
+            <td style="color:var(--text);font-weight:600">7.5d</td>
+            <td>2026-04-27</td>
+        </tr>
+        <tr>
+            <td>Pro</td>
+            <td>$9.99</td>
             <td>Europe</td>
             <td style="color:var(--text);font-weight:600">7.4d</td>
             <td>2026-04-27</td>
@@ -1090,17 +1097,24 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-27</td>
         </tr>
         <tr>
-            <td>Pro</td>
-            <td>$9.99</td>
-            <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">7.3d</td>
-            <td>2026-04-27</td>
-        </tr>
-        <tr>
             <td>Premium</td>
             <td>$14.99</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">7.2d</td>
+            <td style="color:var(--text);font-weight:600">7.3d</td>
+            <td>2026-04-28</td>
+        </tr>
+        <tr>
+            <td>Standard</td>
+            <td>$8.93</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">7.1d</td>
+            <td>2026-04-28</td>
+        </tr>
+        <tr>
+            <td>Pro</td>
+            <td>$9.99</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">7.1d</td>
             <td>2026-04-28</td>
         </tr>
         <tr>
@@ -1118,22 +1132,8 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-28</td>
         </tr>
         <tr>
-            <td>Standard</td>
-            <td>$8.93</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">7.0d</td>
-            <td>2026-04-28</td>
-        </tr>
-        <tr>
             <td>Starter</td>
             <td>$4.96</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">7.0d</td>
-            <td>2026-04-28</td>
-        </tr>
-        <tr>
-            <td>Pro</td>
-            <td>$9.99</td>
             <td>North America</td>
             <td style="color:var(--text);font-weight:600">7.0d</td>
             <td>2026-04-28</td>
@@ -1142,7 +1142,7 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>Standard-Plus</td>
             <td>$11.91</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">6.4d</td>
+            <td style="color:var(--text);font-weight:600">6.5d</td>
             <td>2026-04-28</td>
         </tr>
         <tr>
@@ -1160,17 +1160,17 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-29</td>
         </tr>
         <tr>
-            <td>Lite</td>
-            <td>$1.98</td>
-            <td>Europe</td>
+            <td>Pro</td>
+            <td>$9.99</td>
+            <td>North America</td>
             <td style="color:var(--text);font-weight:600">5.4d</td>
             <td>2026-04-29</td>
         </tr>
         <tr>
-            <td>Pro</td>
-            <td>$9.99</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">5.3d</td>
+            <td>Lite</td>
+            <td>$1.98</td>
+            <td>Europe</td>
+            <td style="color:var(--text);font-weight:600">5.4d</td>
             <td>2026-04-29</td>
         </tr>
         <tr>
@@ -1195,6 +1195,20 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-30</td>
         </tr>
         <tr>
+            <td>Pro</td>
+            <td>$9.99</td>
+            <td>Europe</td>
+            <td style="color:var(--text);font-weight:600">4.6d</td>
+            <td>2026-04-30</td>
+        </tr>
+        <tr>
+            <td>Pro</td>
+            <td>$9.99</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">4.5d</td>
+            <td>2026-04-30</td>
+        </tr>
+        <tr>
             <td>Enterprise</td>
             <td>$23.98</td>
             <td>North America</td>
@@ -1202,24 +1216,10 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-04-30</td>
         </tr>
         <tr>
-            <td>Pro</td>
-            <td>$9.99</td>
-            <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">4.5d</td>
-            <td>2026-04-30</td>
-        </tr>
-        <tr>
-            <td>Pro</td>
-            <td>$9.99</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">4.4d</td>
-            <td>2026-04-30</td>
-        </tr>
-        <tr>
             <td>Premium</td>
             <td>$16.19</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">4.3d</td>
+            <td style="color:var(--text);font-weight:600">4.4d</td>
             <td>2026-04-30</td>
         </tr>
         <tr>
@@ -1240,7 +1240,7 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>Standard-Plus</td>
             <td>$11.91</td>
             <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">2.7d</td>
+            <td style="color:var(--text);font-weight:600">2.8d</td>
             <td>2026-05-01</td>
         </tr>
         <tr>
@@ -1251,6 +1251,20 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-05-01</td>
         </tr>
         <tr>
+            <td>Standard</td>
+            <td>$8.99</td>
+            <td>Europe</td>
+            <td style="color:var(--text);font-weight:600">2.4d</td>
+            <td>2026-05-01</td>
+        </tr>
+        <tr>
+            <td>Plus</td>
+            <td>$18.99</td>
+            <td>North America</td>
+            <td style="color:var(--text);font-weight:600">2.4d</td>
+            <td>2026-05-01</td>
+        </tr>
+        <tr>
             <td>Standard-Plus</td>
             <td>$11.99</td>
             <td>Europe</td>
@@ -1258,18 +1272,18 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-05-01</td>
         </tr>
         <tr>
-            <td>Standard</td>
-            <td>$8.99</td>
-            <td>Europe</td>
+            <td>Standard-Plus</td>
+            <td>$11.99</td>
+            <td>North America</td>
             <td style="color:var(--text);font-weight:600">2.3d</td>
             <td>2026-05-01</td>
         </tr>
         <tr>
-            <td>Plus</td>
-            <td>$18.99</td>
+            <td>Pro</td>
+            <td>$14.99</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">2.3d</td>
-            <td>2026-05-01</td>
+            <td style="color:var(--text);font-weight:600">2.2d</td>
+            <td>2026-05-02</td>
         </tr>
         <tr>
             <td>Standard-Plus</td>
@@ -1279,16 +1293,16 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-05-02</td>
         </tr>
         <tr>
-            <td>Standard-Plus</td>
-            <td>$11.99</td>
-            <td>North America</td>
-            <td style="color:var(--text);font-weight:600">2.2d</td>
-            <td>2026-05-01</td>
+            <td>Standard</td>
+            <td>$7.49</td>
+            <td>Asia</td>
+            <td style="color:var(--text);font-weight:600">2.1d</td>
+            <td>2026-05-02</td>
         </tr>
         <tr>
             <td>Pro</td>
-            <td>$14.99</td>
-            <td>North America</td>
+            <td>$21.97</td>
+            <td>Australia</td>
             <td style="color:var(--text);font-weight:600">2.1d</td>
             <td>2026-05-02</td>
         </tr>
@@ -1300,24 +1314,10 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-05-02</td>
         </tr>
         <tr>
-            <td>Standard</td>
-            <td>$7.49</td>
-            <td>Asia</td>
-            <td style="color:var(--text);font-weight:600">2.0d</td>
-            <td>2026-05-02</td>
-        </tr>
-        <tr>
-            <td>Pro</td>
-            <td>$21.97</td>
-            <td>Australia</td>
-            <td style="color:var(--text);font-weight:600">2.0d</td>
-            <td>2026-05-02</td>
-        </tr>
-        <tr>
             <td>Pro</td>
             <td>$9.99</td>
             <td>Australia</td>
-            <td style="color:var(--text);font-weight:600">1.9d</td>
+            <td style="color:var(--text);font-weight:600">2.0d</td>
             <td>2026-05-02</td>
         </tr>
         <tr>
@@ -1370,24 +1370,24 @@ td.negative { color: var(--red); font-weight: 600; }
             <td>2026-05-03</td>
         </tr>
         <tr>
-            <td>Lite</td>
-            <td>$2.99</td>
-            <td>Europe</td>
-            <td style="color:var(--text);font-weight:600">0.6d</td>
-            <td>2026-05-03</td>
-        </tr>
-        <tr>
             <td>Starter</td>
             <td>$4.99</td>
             <td>Asia</td>
-            <td style="color:var(--text);font-weight:600">0.6d</td>
+            <td style="color:var(--text);font-weight:600">0.7d</td>
             <td>2026-05-03</td>
         </tr>
         <tr>
             <td>Standard</td>
             <td>$8.93</td>
             <td>North America</td>
-            <td style="color:var(--text);font-weight:600">0.5d</td>
+            <td style="color:var(--text);font-weight:600">0.6d</td>
+            <td>2026-05-03</td>
+        </tr>
+        <tr>
+            <td>Lite</td>
+            <td>$2.99</td>
+            <td>Europe</td>
+            <td style="color:var(--text);font-weight:600">0.6d</td>
             <td>2026-05-03</td>
         </tr>
         <tr>
@@ -1573,7 +1573,7 @@ td.negative { color: var(--red); font-weight: 600; }
         <h3 style="color:#e5e7eb;font-size:14px;margin-bottom:8px">Top Converting Landing Pages</h3>
         <table><thead><tr><th>Landing Page</th><th>Conversions</th><th>MRR</th></tr></thead><tbody id="attrLpBody"></tbody></table>
     </div>
-    <p style="color:#4b5563;font-size:11px;margin-top:8px;text-align:right">Snapshot: 2026-04-04 07:12</p>
+    <p style="color:#4b5563;font-size:11px;margin-top:8px;text-align:right">Snapshot: 2026-04-04 08:31</p>
 </div>
 
 
