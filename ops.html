@@ -203,7 +203,7 @@ body{background:var(--bg);color:var(--t1);font-family:'Inter',sans-serif;line-he
 
 <div class="hdr">
     <h1>ModReady Operations HQ</h1>
-    <div class="sub">Workflow Architecture &middot; Updated 2026-03-18 &middot; Generated 2026-04-03 03:01</div>
+    <div class="sub">Workflow Architecture &middot; Updated 2026-03-18 &middot; Generated 2026-04-04 02:12</div>
     <div id="dash-nav"></div>
     <script src="dash-nav.js"></script>
 </div>
@@ -234,7 +234,7 @@ body{background:var(--bg);color:var(--t1);font-family:'Inter',sans-serif;line-he
     <div class="flow-card">
         <div class="flow-header">
             <span class="flow-title">Google Ads → Performance Analytics</span>
-            <span class="info-wrap"><span class="freshness fresh">1h ago</span><span class="info-tip">Updated within 24h — healthy. File: data/costs/adwords_daily.csv</span></span>
+            <span class="info-wrap"><span class="freshness fresh">0h ago</span><span class="info-tip">Updated within 24h — healthy. File: data/costs/adwords_daily.csv</span></span>
         </div>
         <div class="flow-desc">How ad spend data gets from Google to our dashboards, daily and fully automated</div>
         <div class="flow-steps"><div class="flow-step active">Google Ads<span class="step-tip">Where we run paid search ads to acquire customers. All spend is in SEK.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Apps Script<span class="step-tip">A Google Apps Script runs daily at 06:00 CET. It pulls campaign data (impressions, clicks, cost, conversions) via Google Ads Query Language and writes rows to a Google Sheet.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Google Sheets<span class="step-tip">Staging area — data lands in the 'Adwords_Daily' tab. The sheet is published as a CSV so scripts can download it.</span></div><div class="flow-arrow">→</div><div class="flow-step active">sync_ads_from_sheet.sh<span class="step-tip">A shell script that downloads the published CSV from Google Sheets to a local file. Runs in GitHub Actions.</span></div><div class="flow-arrow">→</div><div class="flow-step active">adwords_daily.csv<span class="step-tip">Local CSV file with columns: Date, Campaign, AdGroup, Impressions, Clicks, Cost_SEK, Conversions, ConversionValue_SEK, CPA_SEK.</span></div><div class="flow-arrow">→</div><div class="flow-step active">Dashboard + ROAS Report<span class="step-tip">Two scripts consume this: analyze_roas.py (generates a markdown report) and generate_dashboard.py (builds the visual dashboard).</span></div></div>
@@ -242,7 +242,7 @@ body{background:var(--bg);color:var(--t1);font-family:'Inter',sans-serif;line-he
     <div class="flow-card">
         <div class="flow-header">
             <span class="flow-title">Stripe → Financial Dashboard</span>
-            <span class="info-wrap"><span class="freshness fresh">19h ago</span><span class="info-tip">Updated within 24h — healthy. File: data/stripe_subscriptions.json</span></span>
+            <span class="info-wrap"><span class="freshness fresh">0h ago</span><span class="info-tip">Updated within 24h — healthy. File: data/stripe_subscriptions.json</span></span>
         </div>
         <div class="flow-desc">All subscription data pulled daily, turned into KPI dashboard, auto-deployed</div>
         <div class="flow-steps"><div class="flow-step active">Stripe API<span class="step-tip">Source of truth for all billing. Contains subscriptions, customers, invoices, payment events.</span></div><div class="flow-arrow">→</div><div class="flow-step active">export_stripe_subscriptions.sh<span class="step-tip">Shell script that fetches all ModReady subscriptions (filters out non-ModReady products like VIP). Handles multi-item subscriptions.</span></div><div class="flow-arrow">→</div><div class="flow-step active">generate_dashboard.py<span class="step-tip">Python script that calculates MRR, churn rate, ARPU, at-risk MRR, ROAS, and builds an interactive HTML dashboard with charts.</span></div><div class="flow-arrow">→</div><div class="flow-step active">GitHub Actions<span class="step-tip">Runs daily at 06:00 UTC. Commits updated data files and dashboard to the repo.</span></div><div class="flow-arrow">→</div><div class="flow-step active">dashboard.modready.gg<span class="step-tip">Password-protected dashboard deployed via GitHub Pages (separate repo: werket/modready-dashboard).</span></div></div>
